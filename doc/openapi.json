@@ -113,7 +113,7 @@
         "tags": [
           "pet"
         ],
-        "summary": "Livia Isidia",
+        "summary": "Livia Isidia da silva",
         "description": "Add a new pet to the store",
         "operationId": "addPet",
         "requestBody": {
