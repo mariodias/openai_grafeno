@@ -50,11 +50,11 @@
         "tags": [
           "pet"
         ],
-        "summary": "Update an existing pet",
+        "summary": "Update an existing pet testando aqui o workflow",
         "description": "Update an existing pet by Id",
         "operationId": "updatePet",
         "requestBody": {
-          "description": "Update an existent pet in the store",
+          "description": "Update an existent pet in the store Mario dias",
           "content": {
             "application/json": {
               "schema": {
