@@ -2797,8 +2797,7 @@
           }
         ]
       }
-    }
-  },
+    },
     "/api/v2/concessions/return": {
       "post": {
         "tags": [
