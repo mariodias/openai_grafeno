@@ -6,7 +6,7 @@
     }
   ],
   "info": {
-    "description": "Grafeno Pagamentos",
+    "description": "Grafeno Digital",
     "version": "v2",
     "title": "Pagamentos",
     "termsOfService": "https://docs.grafeno.digital/reference/termos-de-uso-e-pol%C3%ADticas-de-privacidade",
@@ -24,15 +24,15 @@
       "description": "Endpoints relacionados as CCBs."
     },
     {
-      "name": "beneficiarios",
+      "name": "Beneficiários",
       "description": "Endpoints relacionados aos beneficiários das contas grafeno."
     },
     {
-      "name": "contas",
+      "name": "Contas Grafeno",
       "description": "Endpoints relacionados as contas grafeno."
     },
     {
-      "name": "cobrancas",
+      "name": "Cobranças",
       "description": "Endpoints relacionados as cobranças."
     },
     {
@@ -40,11 +40,11 @@
       "description": "Endpoints relacionado ao processo de cadastro das contas grafeno."
     },
     {
-      "name": "transferencias",
+      "name": "Transferências Bancárias",
       "description": "Endpoints relacionado a transferências"
     },
     {
-      "name": "webhooks",
+      "name": "Notificações (webhook)",
       "description": "Endpoints relacionados a gestão dos webhooks das contas grafeno."
     },
     {
@@ -52,11 +52,11 @@
       "description": "Endpoints para integração com a URA Identificada (Atende Simples)."
     },
     {
-      "name": "titularidade",
+      "name": "Gestão de Titularidades",
       "description": "Endpoints relacionados a gestão de titularidades"
     },
     {
-      "name": "cedentes",
+      "name": "Cedentes",
       "description": "Endpoints relacionados a cedentes"
     }
   ],
