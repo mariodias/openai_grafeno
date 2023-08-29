@@ -1323,31 +1323,21 @@
         ]
       }
     },
-    "/api/v2/charges/{id}/paid_externally": {
-      "patch": {
+    "/api/v2/charges": {
+      "post": {
         "tags": [
-          "Contas Bancárias"
+          "Cobranças"
         ],
-        "summary": "Dar baixa em Cobrança",
-        "description": "Dar baixa em uma cobrança existente",
-        "operationId": "DarBaixaEmCobranca",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "Uuid da cobrança",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
+        "summary": "Criar Cobrança",
+        "description": "Criar uma cobrança - Boleto bancário",
+        "operationId": "CriarCobranca",
+        "parameters": [],
         "responses": {
           "200": {
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/DarBaixaEmCobrancaResponseFull"
+                  "$ref": "#/components/schemas/CriarCobrancaResponseFull"
                 }
               }
             },
@@ -1377,6 +1367,9 @@
             }
           }
         },
+        "requestBody": {
+          "$ref": "#/components/requestBodies/CriarCobranca"
+        },
         "security": [
           {
             "Account": [],
@@ -1385,159 +1378,12 @@
         ]
       }
     },
-    "/api/v2/charges": {
-      "get": {
-        "tags": [
-          "Cobranças"
-        ],
-        "summary": "Listar Cobranças",
-        "description": "Lista todas as cobranças",
-        "operationId": "ListarCobrancas",
-        "parameters": [
-          {
-            "name": "p[per_page]",
-            "in": "query",
-            "description": "Quantidade de itens para retornar por página",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "p[page]",
-            "in": "query",
-            "description": "Página a ser carregada",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "s[]",
-            "in": "query",
-            "description": "Ordena os resultados usando o campo desejado, pode ser asc (crescente) ou desc (decrescente)",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "q",
-            "in": "query",
-            "style": "deepObject",
-            "explode": true,
-            "description": "Filtra os resultados usando o campo desejado.",
-            "required": false,
-            "schema": {
-              "type": "object",
-              "properties": {
-                "paidAtEq": {
-                  "type": "string",
-                  "example": "2020-01-01",
-                  "description": "Igual a"
-                },
-                "paidAtGteq": {
-                  "type": "string",
-                  "example": "2020-01-01",
-                  "description": "Maior ou igual a"
-                },
-                "paidAtLteq": {
-                  "type": "string",
-                  "example": "2020-01-01",
-                  "description": "Menor ou igual a"
-                },
-                "dueDateEq": {
-                  "type": "string",
-                  "example": "2020-01-01",
-                  "description": "Igual a"
-                },
-                "dueDateGteq": {
-                  "type": "string",
-                  "example": "2020-01-01",
-                  "description": "Maior ou igual a"
-                },
-                "dueDateLteq": {
-                  "type": "string",
-                  "example": "2020-01-01",
-                  "description": "Menor ou igual a"
-                },
-                "createdAtEq": {
-                  "type": "string",
-                  "example": "2020-01-01",
-                  "description": "Igual a"
-                },
-                "createdAtGteq": {
-                  "type": "string",
-                  "example": "2020-01-01",
-                  "description": "Maior ou igual a"
-                },
-                "createdAtLteq": {
-                  "type": "string",
-                  "example": "2020-01-01",
-                  "description": "Menor ou igual a"
-                },
-                "statusEq": {
-                  "type": "string",
-                  "example": "pending",
-                  "description": "Igual a"
-                },
-                "paymentMethodEq": {
-                  "type": "string",
-                  "example": "pix",
-                  "description": "Igual a"
-                },
-                "yourNumberEq": {
-                  "type": "string",
-                  "example": 12345678901234,
-                  "description": "Igual a"
-                },
-                "payerDocumentNumberEq": {
-                  "type": "string",
-                  "example": 69469766000116,
-                  "description": "Igual a"
-                }
-              }
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ListarCobrancasResponseFull"
-                }
-              }
-            },
-            "description": "Sucesso!"
-          },
-          "401": {
-            "description": "Você precisa entrar ou registrar-se antes de continuar.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/UnauthorizedError"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Registro não encontrado."
-          }
-        },
-        "security": [
-          {
-            "Account": [],
-            "Authorization": []
-          }
-        ]
-      },
       "post": {
         "tags": [
           "Cobranças"
         ],
         "summary": "Criar Cobrança",
-        "description": "Criação de nova cobrança",
+        "description": "Criar uma cobrança - PIX",
         "operationId": "CriarCobranca",
         "parameters": [],
         "responses": {
@@ -1591,8 +1437,8 @@
         "tags": [
           "Cobranças"
         ],
-        "summary": "Visualizar Cobrança",
-        "description": "Exibe as informações de uma cobrança existente",
+        "summary": "Visualizar detalhes de uma cobrança",
+        "description": "Visualizar as informações de uma cobrança existente",
         "operationId": "VisualizarCobranca",
         "parameters": [
           {
@@ -1637,12 +1483,161 @@
           }
         ]
       },
+    "/api/v2/charges": {
+      "get": {
+        "tags": [
+          "Cobranças"
+        ],
+        "summary": "Listar Cobranças",
+        "description": "Listar cobranças",
+        "operationId": "ListarCobrancas",
+        "parameters": [
+          {
+            "name": "p[per_page]",
+            "in": "query",
+            "description": "Quantidade de itens para retornar por página",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "p[page]",
+            "in": "query",
+            "description": "Página a ser carregada",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "s[]",
+            "in": "query",
+            "description": "Ordena os resultados usando o campo desejado, pode ser asc (crescente) ou desc (decrescente)",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "q",
+            "in": "query",
+            "style": "deepObject",
+            "explode": true,
+            "description": "Filtra os resultados usando o campo desejado.",
+            "required": false,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "paidAtEq": {
+                  "type": "string",
+                  "example": "2020-01-01",
+                  "description": "Data de pagamento igual a"
+                },
+                "paidAtGteq": {
+                  "type": "string",
+                  "example": "2020-01-01",
+                  "description": "Data de pagamento maior ou igual a"
+                },
+                "paidAtLteq": {
+                  "type": "string",
+                  "example": "2020-01-01",
+                  "description": "Data de pagamento menor ou igual a"
+                },
+                "dueDateEq": {
+                  "type": "string",
+                  "example": "2020-01-01",
+                  "description": "Data de vencimento igual a"
+                },
+                "dueDateGteq": {
+                  "type": "string",
+                  "example": "2020-01-01",
+                  "description": "Data de vencimento maior ou igual a"
+                },
+                "dueDateLteq": {
+                  "type": "string",
+                  "example": "2020-01-01",
+                  "description": "Data de vencimento menor ou igual a"
+                },
+                "createdAtEq": {
+                  "type": "string",
+                  "example": "2020-01-01",
+                  "description": "Data de criação igual a"
+                },
+                "createdAtGteq": {
+                  "type": "string",
+                  "example": "2020-01-01",
+                  "description": "Data de criação maior ou igual a"
+                },
+                "createdAtLteq": {
+                  "type": "string",
+                  "example": "2020-01-01",
+                  "description": "Data de criação menor ou igual a"
+                },
+                "statusEq": {
+                  "type": "string",
+                  "example": "pending",
+                  "description": "Status da cobrança igual a"
+                },
+                "paymentMethodEq": {
+                  "type": "string",
+                  "example": "pix",
+                  "description": "Método de pagamento igual a"
+                },
+                "yourNumberEq": {
+                  "type": "string",
+                  "example": 12345678901234,
+                  "description": "Seu número igual a"
+                },
+                "payerDocumentNumberEq": {
+                  "type": "string",
+                  "example": 69469766000116,
+                  "description": "Documento do pagador igual a"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListarCobrancasResponseFull"
+                }
+              }
+            },
+            "description": "Sucesso!"
+          },
+          "401": {
+            "description": "Você precisa entrar ou registrar-se antes de continuar.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UnauthorizedError"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Registro não encontrado."
+          }
+        },
+        "security": [
+          {
+            "Account": [],
+            "Authorization": []
+          }
+        ]
+      }
+    },
+    "/api/v2/charges/{id}": {
       "patch": {
         "tags": [
           "Cobranças"
         ],
         "summary": "Atualizar Cobrança",
-        "description": "Atualização de uma cobrança existente",
+        "description": "Atualizar uma cobrança existente",
         "operationId": "AtualizarCobranca",
         "parameters": [
           {
@@ -1692,6 +1687,68 @@
         },
         "requestBody": {
           "$ref": "#/components/requestBodies/AtualizarCobranca"
+        },
+        "security": [
+          {
+            "Account": [],
+            "Authorization": []
+          }
+        ]
+      }
+    },
+    "/api/v2/charges/{id}/paid_externally": {
+      "patch": {
+        "tags": [
+          "Cobranças"
+        ],
+        "summary": "Dar baixa em Cobrança",
+        "description": "Dar baixa em uma cobrança existente",
+        "operationId": "DarBaixaEmCobranca",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Uuid da cobrança",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DarBaixaEmCobrancaResponseFull"
+                }
+              }
+            },
+            "description": "Sucesso!"
+          },
+          "401": {
+            "description": "Você precisa entrar ou registrar-se antes de continuar.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UnauthorizedError"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Registro não encontrado."
+          },
+          "422": {
+            "description": "Não foi possível executar o que foi solicitado, por conter erros.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UnprocessableEntityError"
+                }
+              }
+            }
+          }
         },
         "security": [
           {
