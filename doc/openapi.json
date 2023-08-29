@@ -24,10 +24,6 @@
       "description": "Endpoints relacionados as CCBs."
     },
     {
-      "name": "Beneficiários",
-      "description": "Endpoints relacionados aos beneficiários das contas grafeno."
-    },
-    {
       "name": "Contas Grafeno",
       "description": "Endpoints relacionados as contas grafeno."
     },
@@ -36,8 +32,20 @@
       "description": "Endpoints relacionados as cobranças."
     },
     {
+      "name": "Gestão de Titularidades",
+      "description": "Endpoints relacionados a gestão de titularidades"
+    },
+    {
+      "name": "Cedentes",
+      "description": "Endpoints relacionados a cedentes"
+    }
+    {
       "name": "ficha-cadastral",
       "description": "Endpoints relacionado ao processo de cadastro das contas grafeno."
+    },
+    {
+      "name": "Beneficiários",
+      "description": "Endpoints relacionados aos beneficiários das contas grafeno."
     },
     {
       "name": "Transferências Bancárias",
@@ -51,14 +59,6 @@
       "name": "check_user",
       "description": "Endpoints para integração com a URA Identificada (Atende Simples)."
     },
-    {
-      "name": "Gestão de Titularidades",
-      "description": "Endpoints relacionados a gestão de titularidades"
-    },
-    {
-      "name": "Cedentes",
-      "description": "Endpoints relacionados a cedentes"
-    }
   ],
   "paths": {
     "/api/v2/ccb_requests/creditors": {
@@ -895,12 +895,65 @@
       }
     },
     "/api/v2/beneficiaries": {
+      "post": {
+        "tags": [
+          "Beneficiários"
+        ],
+        "summary": "Criar Beneficiário",
+        "description": "Criar um beneficiário para a conta Grafeno",
+        "operationId": "CriarBeneficiario",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CriarBeneficiarioResponseFull"
+                }
+              }
+            },
+            "description": "Sucesso!"
+          },
+          "401": {
+            "description": "Você precisa entrar ou registrar-se antes de continuar.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UnauthorizedError"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Registro não encontrado."
+          },
+          "422": {
+            "description": "Não foi possível executar o que foi solicitado, por conter erros.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UnprocessableEntityError"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "$ref": "#/components/requestBodies/CriarBeneficiario"
+        },
+        "security": [
+          {
+            "Account": [],
+            "Authorization": []
+          }
+        ]
+      },
       "get": {
         "tags": [
           "Beneficiários"
         ],
-        "summary": "Listar Beneficiário",
-        "description": "Listagem dos beneficiários da conta grafeno",
+        "summary": "Listar beneficiários cadastrados",
+        "description": "Listagem dos beneficiários da conta Grafeno",
         "operationId": "ListarBeneficiario",
         "parameters": [
           {
@@ -943,37 +996,27 @@
                 "accountEq": {
                   "type": "string",
                   "example": "109321-2",
-                  "description": "Igual a"
+                  "description": "Número da conta igual a"
                 },
                 "agencyEq": {
                   "type": "string",
                   "example": 1,
-                  "description": "Igual a"
-                },
-                "companyNameEq": {
-                  "type": "string",
-                  "example": "Company LTDA",
-                  "description": "Igual a"
-                },
-                "companyNameCont": {
-                  "type": "string",
-                  "example": "Company LTDA",
-                  "description": "Contém"
+                  "description": "Número da agência igual a"
                 },
                 "nameEq": {
                   "type": "string",
                   "example": "Company LTDA",
-                  "description": "Igual a"
+                  "description": "Nome do beneficiário igual a"
                 },
                 "nameCont": {
                   "type": "string",
                   "example": "Company LTDA",
-                  "description": "Contém"
+                  "description": "Nome do beneficiário contém"
                 },
                 "documentNumberEq": {
                   "type": "string",
                   "example": 79927166678759,
-                  "description": "Igual a"
+                  "description": "Documento do beneficiário igual a"
                 }
               }
             }
@@ -1003,59 +1046,6 @@
           "404": {
             "description": "Registro não encontrado."
           }
-        },
-        "security": [
-          {
-            "Account": [],
-            "Authorization": []
-          }
-        ]
-      },
-      "post": {
-        "tags": [
-          "Beneficiários"
-        ],
-        "summary": "Criar Beneficiário",
-        "description": "Criação de beneficiário para conta grafeno",
-        "operationId": "CriarBeneficiario",
-        "parameters": [],
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/CriarBeneficiarioResponseFull"
-                }
-              }
-            },
-            "description": "Sucesso!"
-          },
-          "401": {
-            "description": "Você precisa entrar ou registrar-se antes de continuar.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/UnauthorizedError"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Registro não encontrado."
-          },
-          "422": {
-            "description": "Não foi possível executar o que foi solicitado, por conter erros.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/UnprocessableEntityError"
-                }
-              }
-            }
-          }
-        },
-        "requestBody": {
-          "$ref": "#/components/requestBodies/CriarBeneficiario"
         },
         "security": [
           {
