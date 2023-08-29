@@ -2144,118 +2144,12 @@
       }
     },
     "/api/v2/webhooks": {
-      "get": {
-        "tags": [
-          "Notificações (webhook)"
-        ],
-        "summary": "Listar Webhooks",
-        "description": "Lista todos os Webhooks",
-        "operationId": "ListarWebhooks",
-        "parameters": [
-          {
-            "name": "p[per_page]",
-            "in": "query",
-            "description": "Quantidade de itens para retornar por página",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "p[page]",
-            "in": "query",
-            "description": "Página a ser carregada",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "s[]",
-            "in": "query",
-            "description": "Ordena os resultados usando o campo desejado, pode ser asc (crescente) ou desc (decrescente)",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "q",
-            "in": "query",
-            "style": "deepObject",
-            "explode": true,
-            "description": "Filtra os resultados usando o campo desejado.",
-            "required": false,
-            "schema": {
-              "type": "object",
-              "properties": {
-                "kindEq": {
-                  "type": "string",
-                  "example": "boleto",
-                  "description": "Igual a"
-                },
-                "createdAtEq": {
-                  "type": "string",
-                  "example": "2022-12-07",
-                  "description": "Igual a"
-                },
-                "createdAtGteq": {
-                  "type": "string",
-                  "example": "2022-12-07",
-                  "description": "Maior ou igual a"
-                },
-                "createdAtLteq": {
-                  "type": "string",
-                  "example": "2022-12-07",
-                  "description": "Menor ou igual a"
-                },
-                "activeEq": {
-                  "type": "string",
-                  "example": true,
-                  "description": "Igual a"
-                }
-              }
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ListarWebhooksResponseFull"
-                }
-              }
-            },
-            "description": "Sucesso!"
-          },
-          "401": {
-            "description": "Você precisa entrar ou registrar-se antes de continuar.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/UnauthorizedError"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Registro não encontrado."
-          }
-        },
-        "security": [
-          {
-            "Account": [],
-            "Authorization": []
-          }
-        ]
-      },
       "post": {
         "tags": [
           "Notificações (webhook)"
         ],
         "summary": "Criar Webhook",
-        "description": "Criação de novo webhook",
+        "description": "Criar uma regra de notificação (webhook)",
         "operationId": "CriarWebhook",
         "parameters": [],
         "responses": {
@@ -2310,7 +2204,7 @@
           "Notificações (webhook)"
         ],
         "summary": "Visualizar Webhook",
-        "description": "Exibe as informações de um webhook existente",
+        "description": "Exibir as informações de um webhook existente",
         "operationId": "VisualizarWebhook",
         "parameters": [
           {
@@ -2354,13 +2248,123 @@
             "Authorization": []
           }
         ]
-      },
+      }
+    },
+    "/api/v2/webhooks": {
+      "get": {
+        "tags": [
+          "Notificações (webhook)"
+        ],
+        "summary": "Listar Webhooks",
+        "description": "Listar todos os Webhooks cadastrados",
+        "operationId": "ListarWebhooks",
+        "parameters": [
+          {
+            "name": "p[per_page]",
+            "in": "query",
+            "description": "Quantidade de itens para retornar por página",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "p[page]",
+            "in": "query",
+            "description": "Página a ser carregada",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "s[]",
+            "in": "query",
+            "description": "Ordena os resultados usando o campo desejado, pode ser asc (crescente) ou desc (decrescente)",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "q",
+            "in": "query",
+            "style": "deepObject",
+            "explode": true,
+            "description": "Filtra os resultados usando o campo desejado.",
+            "required": false,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "kindEq": {
+                  "type": "string",
+                  "example": "boleto",
+                  "description": "Tipo de evento igual a"
+                },
+                "createdAtEq": {
+                  "type": "string",
+                  "example": "2022-12-07",
+                  "description": "Data de criação igual a"
+                },
+                "createdAtGteq": {
+                  "type": "string",
+                  "example": "2022-12-07",
+                  "description": "Data de criação maior ou igual a"
+                },
+                "createdAtLteq": {
+                  "type": "string",
+                  "example": "2022-12-07",
+                  "description": "Data de criação menor ou igual a"
+                },
+                "activeEq": {
+                  "type": "string",
+                  "example": true,
+                  "description": "Status do webhook igual a"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListarWebhooksResponseFull"
+                }
+              }
+            },
+            "description": "Sucesso!"
+          },
+          "401": {
+            "description": "Você precisa entrar ou registrar-se antes de continuar.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UnauthorizedError"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Registro não encontrado."
+          }
+        },
+        "security": [
+          {
+            "Account": [],
+            "Authorization": []
+          }
+        ]
+      }
+    },
+    "/api/v2/webhooks/{id}": {
       "delete": {
         "tags": [
           "Notificações (webhook)"
         ],
         "summary": "Remover Webhook",
-        "description": "Remove permanentemente um webhook",
+        "description": "Remover permanentemente um webhook",
         "operationId": "RemoverWebhook",
         "parameters": [
           {
