@@ -899,8 +899,8 @@
         "tags": [
           "beneficiarios"
         ],
-        "summary": "Listar Beneficiário",
-        "description": "Listagem dos beneficiários da conta grafeno",
+        "summary": "Listar Beneficiários",
+        "description": "Listar beneficiários da conta Grafeno",
         "operationId": "ListarBeneficiario",
         "parameters": [
           {
@@ -943,37 +943,27 @@
                 "accountEq": {
                   "type": "string",
                   "example": "109321-2",
-                  "description": "Igual a"
+                  "description": "Número da conta bancária igual a"
                 },
                 "agencyEq": {
                   "type": "string",
                   "example": 1,
-                  "description": "Igual a"
-                },
-                "companyNameEq": {
-                  "type": "string",
-                  "example": "Company LTDA",
-                  "description": "Igual a"
-                },
-                "companyNameCont": {
-                  "type": "string",
-                  "example": "Company LTDA",
-                  "description": "Contém"
+                  "description": "Número da agência bancária igual a"
                 },
                 "nameEq": {
                   "type": "string",
                   "example": "Company LTDA",
-                  "description": "Igual a"
+                  "description": "Nome do beneficiário igual a"
                 },
                 "nameCont": {
                   "type": "string",
                   "example": "Company LTDA",
-                  "description": "Contém"
+                  "description": "Nome do beneficiário contém"
                 },
                 "documentNumberEq": {
                   "type": "string",
                   "example": 79927166678759,
-                  "description": "Igual a"
+                  "description": "Documento do beneficiário igual a"
                 }
               }
             }
