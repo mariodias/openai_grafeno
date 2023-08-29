@@ -894,167 +894,6 @@
         ]
       }
     },
-    "/api/v2/beneficiaries": {
-      "post": {
-        "tags": [
-          "Beneficiários"
-        ],
-        "summary": "Criar Beneficiário",
-        "description": "Criar beneficiário para a conta grafeno",
-        "operationId": "CriarBeneficiario",
-        "parameters": [],
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/CriarBeneficiarioResponseFull"
-                }
-              }
-            },
-            "description": "Sucesso!"
-          },
-          "401": {
-            "description": "Você precisa entrar ou registrar-se antes de continuar.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/UnauthorizedError"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Registro não encontrado."
-          },
-          "422": {
-            "description": "Não foi possível executar o que foi solicitado, por conter erros.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/UnprocessableEntityError"
-                }
-              }
-            }
-          }
-        },
-        "requestBody": {
-          "$ref": "#/components/requestBodies/CriarBeneficiario"
-        },
-        "security": [
-          {
-            "Account": [],
-            "Authorization": []
-          }
-        ]
-      },
-      "get": {
-        "tags": [
-          "Beneficiários"
-        ],
-        "summary": "Listar Beneficiários",
-        "description": "Listar beneficiários da conta Grafeno",
-        "operationId": "ListarBeneficiario",
-        "parameters": [
-          {
-            "name": "p[per_page]",
-            "in": "query",
-            "description": "Quantidade de itens para retornar por página",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "p[page]",
-            "in": "query",
-            "description": "Página a ser carregada",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "s[]",
-            "in": "query",
-            "description": "Ordena os resultados usando o campo desejado, pode ser asc (crescente) ou desc (decrescente)",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "q",
-            "in": "query",
-            "style": "deepObject",
-            "explode": true,
-            "description": "Filtra os resultados usando o campo desejado.",
-            "required": false,
-            "schema": {
-              "type": "object",
-              "properties": {
-                "accountEq": {
-                  "type": "string",
-                  "example": "109321-2",
-                  "description": "Número da conta bancária igual a"
-                },
-                "agencyEq": {
-                  "type": "string",
-                  "example": 1,
-                  "description": "Número da agência bancária igual a"
-                },
-                "nameEq": {
-                  "type": "string",
-                  "example": "Company LTDA",
-                  "description": "Nome do beneficiário igual a"
-                },
-                "nameCont": {
-                  "type": "string",
-                  "example": "Company LTDA",
-                  "description": "Nome do beneficiário contém"
-                },
-                "documentNumberEq": {
-                  "type": "string",
-                  "example": 79927166678759,
-                  "description": "Documento do beneficiário igual a"
-                }
-              }
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ListarBeneficiarioResponseFull"
-                }
-              }
-            },
-            "description": "Sucesso!"
-          },
-          "401": {
-            "description": "Você precisa entrar ou registrar-se antes de continuar.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/UnauthorizedError"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Registro não encontrado."
-          }
-        },
-        "security": [
-          {
-            "Account": [],
-            "Authorization": []
-          }
-        ]
-      }
-    },
     "/api/v2/ip_bank_accounts": {
       "get": {
         "tags": [
@@ -1789,7 +1628,7 @@
           "Cobranças"
         ],
         "summary": "Listar CNAB",
-        "description": "Listagem de todos os CNAB registrados para a data selecionada.",
+        "description": "Listar aquivos CNAB de retorno.",
         "operationId": "ListarCNAB",
         "parameters": [
           {
@@ -1875,6 +1714,167 @@
         },
         "security": [
           {
+            "Authorization": []
+          }
+        ]
+      }
+    },
+        "/api/v2/beneficiaries": {
+      "post": {
+        "tags": [
+          "Beneficiários"
+        ],
+        "summary": "Criar Beneficiário",
+        "description": "Criar beneficiário para a conta grafeno",
+        "operationId": "CriarBeneficiario",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CriarBeneficiarioResponseFull"
+                }
+              }
+            },
+            "description": "Sucesso!"
+          },
+          "401": {
+            "description": "Você precisa entrar ou registrar-se antes de continuar.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UnauthorizedError"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Registro não encontrado."
+          },
+          "422": {
+            "description": "Não foi possível executar o que foi solicitado, por conter erros.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UnprocessableEntityError"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "$ref": "#/components/requestBodies/CriarBeneficiario"
+        },
+        "security": [
+          {
+            "Account": [],
+            "Authorization": []
+          }
+        ]
+      },
+      "get": {
+        "tags": [
+          "Beneficiários"
+        ],
+        "summary": "Listar Beneficiários",
+        "description": "Listar beneficiários da conta Grafeno",
+        "operationId": "ListarBeneficiario",
+        "parameters": [
+          {
+            "name": "p[per_page]",
+            "in": "query",
+            "description": "Quantidade de itens para retornar por página",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "p[page]",
+            "in": "query",
+            "description": "Página a ser carregada",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "s[]",
+            "in": "query",
+            "description": "Ordena os resultados usando o campo desejado, pode ser asc (crescente) ou desc (decrescente)",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "q",
+            "in": "query",
+            "style": "deepObject",
+            "explode": true,
+            "description": "Filtra os resultados usando o campo desejado.",
+            "required": false,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "accountEq": {
+                  "type": "string",
+                  "example": "109321-2",
+                  "description": "Número da conta bancária igual a"
+                },
+                "agencyEq": {
+                  "type": "string",
+                  "example": 1,
+                  "description": "Número da agência bancária igual a"
+                },
+                "nameEq": {
+                  "type": "string",
+                  "example": "Company LTDA",
+                  "description": "Nome do beneficiário igual a"
+                },
+                "nameCont": {
+                  "type": "string",
+                  "example": "Company LTDA",
+                  "description": "Nome do beneficiário contém"
+                },
+                "documentNumberEq": {
+                  "type": "string",
+                  "example": 79927166678759,
+                  "description": "Documento do beneficiário igual a"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListarBeneficiarioResponseFull"
+                }
+              }
+            },
+            "description": "Sucesso!"
+          },
+          "401": {
+            "description": "Você precisa entrar ou registrar-se antes de continuar.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UnauthorizedError"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Registro não encontrado."
+          }
+        },
+        "security": [
+          {
+            "Account": [],
             "Authorization": []
           }
         ]
