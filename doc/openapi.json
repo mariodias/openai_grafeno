@@ -1029,6 +1029,7 @@
                 "schema": {
                   "$ref": "#/components/schemas/ListarBeneficiarioResponseFull"
                 }
+              }
             },
             "description": "Sucesso!"
           },
