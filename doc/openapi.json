@@ -1055,6 +1055,141 @@
         ]
       }
     },
+    "/api/v2/ip_bank_accounts": {
+      "get": {
+        "tags": [
+          "Contas Bancárias"
+        ],
+        "summary": "Listar Contas Bancárias",
+        "description": "Listar contas Grafeno",
+        "operationId": "ListarContasBancarias",
+        "parameters": [
+          {
+            "name": "p[per_page]",
+            "in": "query",
+            "description": "Quantidade de itens para retornar por página",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "p[page]",
+            "in": "query",
+            "description": "Página a ser carregada",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "s[]",
+            "in": "query",
+            "description": "Ordena os resultados usando o campo desejado, pode ser asc (crescente) ou desc (decrescente)",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListarContasBancariasResponseFull"
+                }
+              }
+            },
+            "description": "Sucesso!"
+          },
+          "401": {
+            "description": "Você precisa entrar ou registrar-se antes de continuar.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UnauthorizedError"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Registro não encontrado."
+          }
+        },
+        "security": [
+          {
+            "Authorization": []
+          }
+        ]
+      }
+    },
+    "/api/v2/balance": {
+      "get": {
+        "tags": [
+          "Contas Bancárias"
+        ],
+        "summary": "Visualizar Saldo",
+        "description": "Obter saldo da conta Grafeno",
+        "operationId": "VisualizarSaldo",
+        "parameters": [
+          {
+            "name": "q",
+            "in": "query",
+            "style": "deepObject",
+            "explode": true,
+            "description": "Filtra os resultados usando o campo desejado.",
+            "required": false,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "entryAtGteq": {
+                  "type": "string",
+                  "example": "2020-01-01",
+                  "description": "Data maior ou igual a"
+                },
+                "entryAtLteq": {
+                  "type": "string",
+                  "example": "2020-01-01",
+                  "description": "Data menor ou igual a"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VisualizarSaldoResponseFull"
+                }
+              }
+            },
+            "description": "Sucesso!"
+          },
+          "401": {
+            "description": "Você precisa entrar ou registrar-se antes de continuar.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UnauthorizedError"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Registro não encontrado."
+          }
+        },
+        "security": [
+          {
+            "Account": [],
+            "Authorization": []
+          }
+        ]
+      }
+    },
     "/api/v2/statement_entries": {
       "get": {
         "tags": [
@@ -1161,72 +1296,6 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ListarMovimentacoesResponseFull"
-                }
-              }
-            },
-            "description": "Sucesso!"
-          },
-          "401": {
-            "description": "Você precisa entrar ou registrar-se antes de continuar.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/UnauthorizedError"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Registro não encontrado."
-          }
-        },
-        "security": [
-          {
-            "Account": [],
-            "Authorization": []
-          }
-        ]
-      }
-    },
-    "/api/v2/balance": {
-      "get": {
-        "tags": [
-          "Contas Bancárias"
-        ],
-        "summary": "Visualizar Saldo",
-        "description": "Obter saldo da conta Grafeno",
-        "operationId": "VisualizarSaldo",
-        "parameters": [
-          {
-            "name": "q",
-            "in": "query",
-            "style": "deepObject",
-            "explode": true,
-            "description": "Filtra os resultados usando o campo desejado.",
-            "required": false,
-            "schema": {
-              "type": "object",
-              "properties": {
-                "entryAtGteq": {
-                  "type": "string",
-                  "example": "2020-01-01",
-                  "description": "Data maior ou igual a"
-                },
-                "entryAtLteq": {
-                  "type": "string",
-                  "example": "2020-01-01",
-                  "description": "Data menor ou igual a"
-                }
-              }
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/VisualizarSaldoResponseFull"
                 }
               }
             },
@@ -1627,75 +1696,6 @@
         "security": [
           {
             "Account": [],
-            "Authorization": []
-          }
-        ]
-      }
-    },
-    "/api/v2/ip_bank_accounts": {
-      "get": {
-        "tags": [
-          "Contas Bancárias"
-        ],
-        "summary": "Listar Contas Bancárias",
-        "description": "Listar contas Grafeno",
-        "operationId": "ListarContasBancarias",
-        "parameters": [
-          {
-            "name": "p[per_page]",
-            "in": "query",
-            "description": "Quantidade de itens para retornar por página",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "p[page]",
-            "in": "query",
-            "description": "Página a ser carregada",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "s[]",
-            "in": "query",
-            "description": "Ordena os resultados usando o campo desejado, pode ser asc (crescente) ou desc (decrescente)",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          },
-        ],
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ListarContasBancariasResponseFull"
-                }
-              }
-            },
-            "description": "Sucesso!"
-          },
-          "401": {
-            "description": "Você precisa entrar ou registrar-se antes de continuar.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/UnauthorizedError"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Registro não encontrado."
-          }
-        },
-        "security": [
-          {
             "Authorization": []
           }
         ]
