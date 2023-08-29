@@ -1376,8 +1376,7 @@
             "Authorization": []
           }
         ]
-      }
-    },
+      },
       "post": {
         "tags": [
           "Cobranças"
@@ -1482,7 +1481,8 @@
             "Authorization": []
           }
         ]
-      },
+      }
+    },
     "/api/v2/charges": {
       "get": {
         "tags": [
