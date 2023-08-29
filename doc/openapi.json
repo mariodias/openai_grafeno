@@ -912,7 +912,7 @@
                 }
               }
             },
-            "description": "Sucesso!"
+            "description": "Sucesso"
           },
           "401": {
             "description": "Você precisa entrar ou registrar-se antes de continuar.",
