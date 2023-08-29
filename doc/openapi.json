@@ -1376,8 +1376,7 @@
             "Authorization": []
           }
         ]
-      }
-    },
+      },
     "/api/v2/charges/{id}": {
       "get": {
         "tags": [
