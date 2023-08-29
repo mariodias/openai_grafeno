@@ -947,7 +947,7 @@
             "Authorization": []
           }
         ]
-      }
+      },
       "get": {
         "tags": [
           "beneficiarios"
