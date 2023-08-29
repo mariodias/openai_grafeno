@@ -897,7 +897,7 @@
     "/api/v2/beneficiaries": {
       "post": {
         "tags": [
-          "beneficiarios"
+          "Beneficiários"
         ],
         "summary": "Criar Beneficiário",
         "description": "Criar beneficiário para a conta grafeno",
@@ -950,7 +950,7 @@
       },
       "get": {
         "tags": [
-          "beneficiarios"
+          "Beneficiários"
         ],
         "summary": "Listar Beneficiários",
         "description": "Listar beneficiários da conta Grafeno",
