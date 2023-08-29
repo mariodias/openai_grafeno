@@ -1010,6 +1010,59 @@
             "Authorization": []
           }
         ]
+      },
+      "post": {
+        "tags": [
+          "beneficiarios"
+        ],
+        "summary": "Criar Beneficiário",
+        "description": "Criação de beneficiário para conta grafeno",
+        "operationId": "CriarBeneficiario",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CriarBeneficiarioResponseFull"
+                }
+              }
+            },
+            "description": "Sucesso!"
+          },
+          "401": {
+            "description": "Você precisa entrar ou registrar-se antes de continuar.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UnauthorizedError"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Registro não encontrado."
+          },
+          "422": {
+            "description": "Não foi possível executar o que foi solicitado, por conter erros.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UnprocessableEntityError"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "$ref": "#/components/requestBodies/CriarBeneficiario"
+        },
+        "security": [
+          {
+            "Account": [],
+            "Authorization": []
+          }
+        ]
       }
     },
     "/api/v2/statement_entries": {
