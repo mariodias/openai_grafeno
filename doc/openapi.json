@@ -6,7 +6,7 @@
     }
   ],
   "info": {
-    "description": "Grafeno Pagamentos teste",
+    "description": "Grafeno Pagamentos",
     "version": "v2",
     "title": "Pagamentos",
     "termsOfService": "https://docs.grafeno.digital/reference/termos-de-uso-e-pol%C3%ADticas-de-privacidade",
@@ -19,46 +19,46 @@
     }
   },
   "tags": [
-  	{
-      "name": "Contas bancárias",
-      "description": "Endpoints relacionados as contas grafeno."
+    {
+      "name": "ccb",
+      "description": "Endpoints relacionados as CCBs."
     },
     {
-      "name": "Beneficiários",
+      "name": "beneficiarios",
       "description": "Endpoints relacionados aos beneficiários das contas grafeno."
     },
     {
-      "name": "Cobranças",
+      "name": "contas",
+      "description": "Endpoints relacionados as contas grafeno."
+    },
+    {
+      "name": "cobrancas",
       "description": "Endpoints relacionados as cobranças."
-    },
-    {
-      "name": "Titularidades",
-      "description": "Endpoints relacionados a gestão de titularidades"
-    },
-    {
-      "name": "Cedentes",
-      "description": "Endpoints relacionados a cedentes"
-    },
-    {
-      "name": "Transferências",
-      "description": "Endpoints relacionado a transferências"
-    },
-    {
-      "name": "Notificações",
-      "description": "Endpoints relacionados a gestão dos webhooks das contas grafeno."
-    },
-   	{
-      "name": "ccb",
-      "description": "Endpoints relacionados as CCBs."
     },
     {
       "name": "ficha-cadastral",
       "description": "Endpoints relacionado ao processo de cadastro das contas grafeno."
     },
     {
+      "name": "transferencias",
+      "description": "Endpoints relacionado a transferências"
+    },
+    {
+      "name": "webhooks",
+      "description": "Endpoints relacionados a gestão dos webhooks das contas grafeno."
+    },
+    {
       "name": "check_user",
       "description": "Endpoints para integração com a URA Identificada (Atende Simples)."
     },
+    {
+      "name": "titularidade",
+      "description": "Endpoints relacionados a gestão de titularidades"
+    },
+    {
+      "name": "cedentes",
+      "description": "Endpoints relacionados a cedentes"
+    }
   ],
   "paths": {
     "/api/v2/ccb_requests/creditors": {
@@ -895,65 +895,12 @@
       }
     },
     "/api/v2/beneficiaries": {
-      "post": {
-        "tags": [
-          "Beneficiários"
-        ],
-        "summary": "Criar beneficiário",
-        "description": "Este método cria e cadastra um beneficiário na conta grafeno.",
-        "operationId": "CriarBeneficiario",
-        "parameters": [],
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/CriarBeneficiarioResponseFull"
-                }
-              }
-            },
-            "description": "Sucesso!"
-          },
-          "401": {
-            "description": "Você precisa entrar ou registrar-se antes de continuar.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/UnauthorizedError"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Registro não encontrado."
-          },
-          "422": {
-            "description": "Não foi possível executar o que foi solicitado, por conter erros.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/UnprocessableEntityError"
-                }
-              }
-            }
-          }
-        },
-        "requestBody": {
-          "$ref": "#/components/requestBodies/CriarBeneficiario"
-        },
-        "security": [
-          {
-            "Account": [],
-            "Authorization": []
-          }
-        ]
-      },
       "get": {
         "tags": [
-          "Beneficiários"
+          "beneficiarios"
         ],
-        "summary": "Listar beneficiários",
-        "description": "Este método retorna uma lista de beneficiários da conta grafeno.",
+        "summary": "Listar Beneficiário",
+        "description": "Listagem dos beneficiários da conta grafeno",
         "operationId": "ListarBeneficiario",
         "parameters": [
           {
@@ -1063,62 +1010,21 @@
             "Authorization": []
           }
         ]
-      }
-    },
-    "/api/v2/ip_bank_accounts": {
-      "get": {
+      },
+      "post": {
         "tags": [
-          "contas"
+          "beneficiarios"
         ],
-        "summary": "Listar contas bancárias vinculadas",
-        "description": "Este método retorna uma lista com todas as contas Grafeno que sua conta possuí participação.",
-        "operationId": "ListarContasBancarias",
-        "parameters": [
-          {
-            "name": "p[per_page]",
-            "in": "query",
-            "description": "Quantidade de itens para retornar por página",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "p[page]",
-            "in": "query",
-            "description": "Página a ser carregada",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "s[]",
-            "in": "query",
-            "description": "Ordena os resultados usando o campo desejado, pode ser asc (crescente) ou desc (decrescente)",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "q",
-            "in": "query",
-            "style": "deepObject",
-            "explode": true,
-            "description": "Filtra os resultados usando o campo desejado.",
-            "required": false,
-            "schema": {
-              "type": "object"
-            }
-          }
-        ],
+        "summary": "Criar Beneficiário",
+        "description": "Criação de beneficiário para conta grafeno",
+        "operationId": "CriarBeneficiario",
+        "parameters": [],
         "responses": {
           "200": {
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ListarContasBancariasResponseFull"
+                  "$ref": "#/components/schemas/CriarBeneficiarioResponseFull"
                 }
               }
             },
@@ -1136,72 +1042,20 @@
           },
           "404": {
             "description": "Registro não encontrado."
+          },
+          "422": {
+            "description": "Não foi possível executar o que foi solicitado, por conter erros.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UnprocessableEntityError"
+                }
+              }
+            }
           }
         },
-        "security": [
-          {
-            "Authorization": []
-          }
-        ]
-      }
-    },
-    "/api/v2/balance": {
-      "get": {
-        "tags": [
-          "contas"
-        ],
-        "summary": "Visualizar saldo da conta Grafeno",
-        "description": "Este método retorna informações referentes ao saldo da conta Grafeno.",
-        "operationId": "VisualizarSaldo",
-        "parameters": [
-          {
-            "name": "q",
-            "in": "query",
-            "style": "deepObject",
-            "explode": true,
-            "description": "Filtra os resultados usando o campo desejado.",
-            "required": false,
-            "schema": {
-              "type": "object",
-              "properties": {
-                "entryAtGteq": {
-                  "type": "string",
-                  "example": "2020-01-01",
-                  "description": "Maior ou igual a"
-                },
-                "entryAtLteq": {
-                  "type": "string",
-                  "example": "2020-01-01",
-                  "description": "Menor ou igual a"
-                }
-              }
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/VisualizarSaldoResponseFull"
-                }
-              }
-            },
-            "description": "Sucesso!"
-          },
-          "401": {
-            "description": "Você precisa entrar ou registrar-se antes de continuar.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/UnauthorizedError"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Registro não encontrado."
-          }
+        "requestBody": {
+          "$ref": "#/components/requestBodies/CriarBeneficiario"
         },
         "security": [
           {
@@ -1214,10 +1068,10 @@
     "/api/v2/statement_entries": {
       "get": {
         "tags": [
-          "Contas bancárias"
+          "contas"
         ],
-        "summary": "Listar Movimentações da conta Grafeno",
-        "description": "Este método retorna uma lista com todas as movimentações da conta grafeno.",
+        "summary": "Listar Movimentações",
+        "description": "Listagem das movimentações da conta",
         "operationId": "ListarMovimentacoes",
         "parameters": [
           {
@@ -1349,13 +1203,141 @@
         ]
       }
     },
+    "/api/v2/balance": {
+      "get": {
+        "tags": [
+          "contas"
+        ],
+        "summary": "Visualizar Saldo",
+        "description": "Informações do saldo da conta",
+        "operationId": "VisualizarSaldo",
+        "parameters": [
+          {
+            "name": "q",
+            "in": "query",
+            "style": "deepObject",
+            "explode": true,
+            "description": "Filtra os resultados usando o campo desejado.",
+            "required": false,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "entryAtGteq": {
+                  "type": "string",
+                  "example": "2020-01-01",
+                  "description": "Maior ou igual a"
+                },
+                "entryAtLteq": {
+                  "type": "string",
+                  "example": "2020-01-01",
+                  "description": "Menor ou igual a"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VisualizarSaldoResponseFull"
+                }
+              }
+            },
+            "description": "Sucesso!"
+          },
+          "401": {
+            "description": "Você precisa entrar ou registrar-se antes de continuar.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UnauthorizedError"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Registro não encontrado."
+          }
+        },
+        "security": [
+          {
+            "Account": [],
+            "Authorization": []
+          }
+        ]
+      }
+    },
+    "/api/v2/charges/{id}/paid_externally": {
+      "patch": {
+        "tags": [
+          "cobrancas"
+        ],
+        "summary": "Dar baixa em Cobrança",
+        "description": "Dar baixa em uma cobrança existente",
+        "operationId": "DarBaixaEmCobranca",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Uuid da cobrança",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DarBaixaEmCobrancaResponseFull"
+                }
+              }
+            },
+            "description": "Sucesso!"
+          },
+          "401": {
+            "description": "Você precisa entrar ou registrar-se antes de continuar.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UnauthorizedError"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Registro não encontrado."
+          },
+          "422": {
+            "description": "Não foi possível executar o que foi solicitado, por conter erros.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UnprocessableEntityError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Account": [],
+            "Authorization": []
+          }
+        ]
+      }
+    },
     "/api/v2/charges": {
       "get": {
         "tags": [
           "cobrancas"
         ],
-        "summary": "Listar cobranças da conta Grafeno",
-        "description": "Este método retorna uma lista com todas as cobranças da conta grafeno.",
+        "summary": "Listar Cobranças",
+        "description": "Lista todas as cobranças",
         "operationId": "ListarCobrancas",
         "parameters": [
           {
@@ -1500,61 +1482,8 @@
         "tags": [
           "cobrancas"
         ],
-        "summary": "Criar Cobrança - Boleto Bancário",
-        "description": "Este método cria uma cobrança via boleto bancário na conta grafeno.",
-        "operationId": "CriarCobranca",
-        "parameters": [],
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/CriarCobrancaResponseFull"
-                }
-              }
-            },
-            "description": "Sucesso!"
-          },
-          "401": {
-            "description": "Você precisa entrar ou registrar-se antes de continuar.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/UnauthorizedError"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Registro não encontrado."
-          },
-          "422": {
-            "description": "Não foi possível executar o que foi solicitado, por conter erros.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/UnprocessableEntityError"
-                }
-              }
-            }
-          }
-        },
-        "requestBody": {
-          "$ref": "#/components/requestBodies/CriarCobranca"
-        },
-        "security": [
-          {
-            "Account": [],
-            "Authorization": []
-          }
-        ]
-      },
-      "post": {
-        "tags": [
-          "cobrancas"
-        ],
-        "summary": "Criar Cobrança - PIX Cobrança",
-        "description": "Este método cria uma cobrança via pix na conta grafeno.",
+        "summary": "Criar Cobrança",
+        "description": "Criação de nova cobrança",
         "operationId": "CriarCobranca",
         "parameters": [],
         "responses": {
@@ -1718,22 +1647,51 @@
         ]
       }
     },
-    "/api/v2/charges/{id}/paid_externally": {
-      "patch": {
+    "/api/v2/ip_bank_accounts": {
+      "get": {
         "tags": [
-          "cobrancas"
+          "contas"
         ],
-        "summary": "Dar baixa em Cobrança",
-        "description": "Dar baixa em uma cobrança existente",
-        "operationId": "DarBaixaEmCobranca",
+        "summary": "Listar Contas Bancárias",
+        "description": "Listagem das contas grafeno",
+        "operationId": "ListarContasBancarias",
         "parameters": [
           {
-            "name": "id",
-            "in": "path",
-            "description": "Uuid da cobrança",
-            "required": true,
+            "name": "p[per_page]",
+            "in": "query",
+            "description": "Quantidade de itens para retornar por página",
+            "required": false,
             "schema": {
               "type": "string"
+            }
+          },
+          {
+            "name": "p[page]",
+            "in": "query",
+            "description": "Página a ser carregada",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "s[]",
+            "in": "query",
+            "description": "Ordena os resultados usando o campo desejado, pode ser asc (crescente) ou desc (decrescente)",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "q",
+            "in": "query",
+            "style": "deepObject",
+            "explode": true,
+            "description": "Filtra os resultados usando o campo desejado.",
+            "required": false,
+            "schema": {
+              "type": "object"
             }
           }
         ],
@@ -1742,7 +1700,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/DarBaixaEmCobrancaResponseFull"
+                  "$ref": "#/components/schemas/ListarContasBancariasResponseFull"
                 }
               }
             },
@@ -1760,21 +1718,10 @@
           },
           "404": {
             "description": "Registro não encontrado."
-          },
-          "422": {
-            "description": "Não foi possível executar o que foi solicitado, por conter erros.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/UnprocessableEntityError"
-                }
-              }
-            }
           }
         },
         "security": [
           {
-            "Account": [],
             "Authorization": []
           }
         ]
