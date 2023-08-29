@@ -1578,6 +1578,68 @@
         ]
       }
     },
+    "/api/v2/charges/{id}/paid_externally": {
+      "patch": {
+        "tags": [
+          "Cobranças"
+        ],
+        "summary": "Dar baixa em Cobrança",
+        "description": "Dar baixa em uma cobrança existente",
+        "operationId": "DarBaixaEmCobranca",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Uuid da cobrança",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DarBaixaEmCobrancaResponseFull"
+                }
+              }
+            },
+            "description": "Sucesso!"
+          },
+          "401": {
+            "description": "Você precisa entrar ou registrar-se antes de continuar.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UnauthorizedError"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Registro não encontrado."
+          },
+          "422": {
+            "description": "Não foi possível executar o que foi solicitado, por conter erros.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UnprocessableEntityError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Account": [],
+            "Authorization": []
+          }
+        ]
+      }
+    },
     "/api/v2/charges/{id}": {
       "patch": {
         "tags": [
