@@ -38,7 +38,7 @@
     {
       "name": "Cedentes",
       "description": "Endpoints relacionados a cedentes"
-    }
+    },
     {
       "name": "ficha-cadastral",
       "description": "Endpoints relacionado ao processo de cadastro das contas grafeno."
@@ -58,7 +58,7 @@
     {
       "name": "check_user",
       "description": "Endpoints para integração com a URA Identificada (Atende Simples)."
-    },
+    }
   ],
   "paths": {
     "/api/v2/ccb_requests/creditors": {
