@@ -1061,7 +1061,7 @@
           "Contas Bancárias"
         ],
         "summary": "Listar Movimentações",
-        "description": "Listagem das movimentações da conta",
+        "description": "Listar as movimentações da conta Grafeno",
         "operationId": "ListarMovimentacoes",
         "parameters": [
           {
@@ -1104,57 +1104,52 @@
                 "entryAtGteq": {
                   "type": "string",
                   "example": "2020-01-01",
-                  "description": "Maior ou igual a"
+                  "description": "Data de entrada ou saída maior ou igual a"
                 },
                 "entryAtLteq": {
                   "type": "string",
                   "example": "2020-01-01",
-                  "description": "Menor ou igual a"
+                  "description": "Data de entrada ou saída menor ou igual a"
                 },
                 "valueEq": {
                   "type": "number",
                   "example": 250.45,
-                  "description": "Igual a"
+                  "description": "Valor da entrada ou saída igual a"
                 },
                 "valueLt": {
                   "type": "number",
                   "example": 250.45,
-                  "description": "Menor que"
+                  "description": "Valor da entrada ou saída menor que"
                 },
                 "valueGt": {
                   "type": "number",
                   "example": 250.45,
-                  "description": "Maior que"
+                  "description": "Valor da entrada ou saída maior que"
                 },
                 "valueLteq": {
                   "type": "number",
                   "example": 250.45,
-                  "description": "Menor ou igual a"
+                  "description": "Valor da entrada ou saída menor ou igual a"
                 },
                 "valueGteq": {
                   "type": "number",
                   "example": 250.45,
-                  "description": "Maior ou igual a"
+                  "description": "Valor da entrada ou saída maior ou igual a"
                 },
                 "valueNotEq": {
                   "type": "number",
                   "example": 250.45,
-                  "description": "Diferente de"
-                },
-                "value": {
-                  "type": "number",
-                  "example": 250.45,
-                  "description": "Em branco"
+                  "description": "Valor da entrada ou saída diferente de"
                 },
                 "apiPartnerTransactionUuidEq": {
                   "type": "string",
                   "example": "c6f3ba18-1771-4822-a38e-572921f09c19",
-                  "description": "Igual a"
+                  "description": "Uuid da transferência igual a"
                 },
                 "apiPartnerTransactionUuidNotEq": {
                   "type": "string",
                   "example": "c6f3ba18-1771-4822-a38e-572921f09c19",
-                  "description": "Diferente de"
+                  "description": "Uuid da transferência diferente de"
                 }
               }
             }
@@ -1199,7 +1194,7 @@
           "Contas Bancárias"
         ],
         "summary": "Visualizar Saldo",
-        "description": "Informações do saldo da conta",
+        "description": "Obter saldo da conta Grafeno",
         "operationId": "VisualizarSaldo",
         "parameters": [
           {
@@ -1215,12 +1210,12 @@
                 "entryAtGteq": {
                   "type": "string",
                   "example": "2020-01-01",
-                  "description": "Maior ou igual a"
+                  "description": "Data maior ou igual a"
                 },
                 "entryAtLteq": {
                   "type": "string",
                   "example": "2020-01-01",
-                  "description": "Menor ou igual a"
+                  "description": "Data menor ou igual a"
                 }
               }
             }
@@ -1643,7 +1638,7 @@
           "Contas Bancárias"
         ],
         "summary": "Listar Contas Bancárias",
-        "description": "Listagem das contas grafeno",
+        "description": "Listar contas Grafeno",
         "operationId": "ListarContasBancarias",
         "parameters": [
           {
@@ -1673,17 +1668,6 @@
               "type": "string"
             }
           },
-          {
-            "name": "q",
-            "in": "query",
-            "style": "deepObject",
-            "explode": true,
-            "description": "Filtra os resultados usando o campo desejado.",
-            "required": false,
-            "schema": {
-              "type": "object"
-            }
-          }
         ],
         "responses": {
           "200": {
