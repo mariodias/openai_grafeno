@@ -895,24 +895,100 @@
       }
     },
     "/api/v2/beneficiaries": {
-      "post": {
+      "get": {
         "tags": [
-          "Beneficiários"
+          "beneficiarios"
         ],
-        "summary": "Criar Beneficiário",
-        "description": "Criar um beneficiário para a conta Grafeno",
-        "operationId": "CriarBeneficiario",
-        "parameters": [],
+        "summary": "Listar Beneficiário",
+        "description": "Listagem dos beneficiários da conta grafeno",
+        "operationId": "ListarBeneficiario",
+        "parameters": [
+          {
+            "name": "p[per_page]",
+            "in": "query",
+            "description": "Quantidade de itens para retornar por página",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "p[page]",
+            "in": "query",
+            "description": "Página a ser carregada",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "s[]",
+            "in": "query",
+            "description": "Ordena os resultados usando o campo desejado, pode ser asc (crescente) ou desc (decrescente)",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "q",
+            "in": "query",
+            "style": "deepObject",
+            "explode": true,
+            "description": "Filtra os resultados usando o campo desejado.",
+            "required": false,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "accountEq": {
+                  "type": "string",
+                  "example": "109321-2",
+                  "description": "Igual a"
+                },
+                "agencyEq": {
+                  "type": "string",
+                  "example": 1,
+                  "description": "Igual a"
+                },
+                "companyNameEq": {
+                  "type": "string",
+                  "example": "Company LTDA",
+                  "description": "Igual a"
+                },
+                "companyNameCont": {
+                  "type": "string",
+                  "example": "Company LTDA",
+                  "description": "Contém"
+                },
+                "nameEq": {
+                  "type": "string",
+                  "example": "Company LTDA",
+                  "description": "Igual a"
+                },
+                "nameCont": {
+                  "type": "string",
+                  "example": "Company LTDA",
+                  "description": "Contém"
+                },
+                "documentNumberEq": {
+                  "type": "string",
+                  "example": 79927166678759,
+                  "description": "Igual a"
+                }
+              }
+            }
+          }
+        ],
         "responses": {
           "200": {
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/CriarBeneficiarioResponseFull"
+                  "$ref": "#/components/schemas/ListarBeneficiarioResponseFull"
                 }
               }
             },
-            "description": "Sucesso"
+            "description": "Sucesso!"
           },
           "401": {
             "description": "Você precisa entrar ou registrar-se antes de continuar.",
@@ -926,20 +1002,7 @@
           },
           "404": {
             "description": "Registro não encontrado."
-          },
-          "422": {
-            "description": "Não foi possível executar o que foi solicitado, por conter erros.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/UnprocessableEntityError"
-                }
-              }
-            }
           }
-        },
-        "requestBody": {
-          "$ref": "#/components/requestBodies/CriarBeneficiario"
         },
         "security": [
           {
