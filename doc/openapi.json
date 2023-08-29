@@ -1329,7 +1329,7 @@
           "Cobranças"
         ],
         "summary": "Criar Cobrança",
-        "description": "Criar uma cobrança - Boleto bancário",
+        "description": "Criar uma cobrança",
         "operationId": "CriarCobranca",
         "parameters": [],
         "responses": {
