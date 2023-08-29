@@ -1377,60 +1377,6 @@
           }
         ]
       },
-    "/api/v2/charges/{id}": {
-      "get": {
-        "tags": [
-          "Cobranças"
-        ],
-        "summary": "Visualizar detalhes de uma cobrança",
-        "description": "Visualizar as informações de uma cobrança existente",
-        "operationId": "VisualizarCobranca",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "Uuid da cobrança",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/VisualizarCobrancaResponseFull"
-                }
-              }
-            },
-            "description": "Sucesso!"
-          },
-          "401": {
-            "description": "Você precisa entrar ou registrar-se antes de continuar.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/UnauthorizedError"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Registro não encontrado."
-          }
-        },
-        "security": [
-          {
-            "Account": [],
-            "Authorization": []
-          }
-        ]
-      }
-    }
-  },
-    "/api/v2/charges": {
       "get": {
         "tags": [
           "Cobranças"
@@ -1551,6 +1497,58 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ListarCobrancasResponseFull"
+                }
+              }
+            },
+            "description": "Sucesso!"
+          },
+          "401": {
+            "description": "Você precisa entrar ou registrar-se antes de continuar.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UnauthorizedError"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Registro não encontrado."
+          }
+        },
+        "security": [
+          {
+            "Account": [],
+            "Authorization": []
+          }
+        ]
+      }
+    },
+    "/api/v2/charges/{id}": {
+      "get": {
+        "tags": [
+          "Cobranças"
+        ],
+        "summary": "Visualizar detalhes de uma cobrança",
+        "description": "Visualizar as informações de uma cobrança existente",
+        "operationId": "VisualizarCobranca",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Uuid da cobrança",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VisualizarCobrancaResponseFull"
                 }
               }
             },
