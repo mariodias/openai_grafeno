@@ -2451,78 +2451,13 @@
         ]
       }
     },
-    "/api/v2/concessions/assignors/{id}/catching": {
-      "post": {
-        "tags": [
-          "Gestão de Titularidades"
-        ],
-        "summary": "Capturar títulos",
-        "description": "Realiza a captura de títulos de um cedente",
-        "operationId": "CapturarTitulos",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "Id do acesso do cedente",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/CapturarTitulosResponseFull"
-                }
-              }
-            },
-            "description": "Sucesso!"
-          },
-          "401": {
-            "description": "Você precisa entrar ou registrar-se antes de continuar.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/UnauthorizedError"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Registro não encontrado."
-          },
-          "422": {
-            "description": "Não foi possível executar o que foi solicitado, por conter erros.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/UnprocessableEntityError"
-                }
-              }
-            }
-          }
-        },
-        "requestBody": {
-          "$ref": "#/components/requestBodies/CapturarTitulos"
-        },
-        "security": [
-          {
-            "Account": [],
-            "Authorization": []
-          }
-        ]
-      }
-    },
-    "/api/v2/concessions/assignors/{assignor_id}/charges": {
+     "/api/v2/concessions/assignors/{assignor_id}/charges": {
       "get": {
         "tags": [
           "Gestão de Titularidades"
         ],
         "summary": "Listar Cobranças Disponíveis",
-        "description": "Lista todas as cobranças disponíveis para captura",
+        "description": "Listar as cobranças disponíveis para captura",
         "operationId": "ListarCobrancasDisponiveis",
         "parameters": [
           {
@@ -2653,6 +2588,217 @@
         ]
       }
     },
+    "/api/v2/concessions/assignors/{id}/catching": {
+      "post": {
+        "tags": [
+          "Gestão de Titularidades"
+        ],
+        "summary": "Capturar títulos",
+        "description": "Capturar títulos de um cedente",
+        "operationId": "CapturarTitulos",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Id do acesso do cedente",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CapturarTitulosResponseFull"
+                }
+              }
+            },
+            "description": "Sucesso!"
+          },
+          "401": {
+            "description": "Você precisa entrar ou registrar-se antes de continuar.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UnauthorizedError"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Registro não encontrado."
+          },
+          "422": {
+            "description": "Não foi possível executar o que foi solicitado, por conter erros.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UnprocessableEntityError"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "$ref": "#/components/requestBodies/CapturarTitulos"
+        },
+        "security": [
+          {
+            "Account": [],
+            "Authorization": []
+          }
+        ]
+      }
+    },
+    "/api/v2/concessions": {
+      "get": {
+        "tags": [
+          "Gestão de Titularidades"
+        ],
+        "summary": "Listar Concessões",
+        "description": "Listar todas as concessões efetuadas",
+        "operationId": "ListarConcessoes",
+        "parameters": [
+          {
+            "name": "p[per_page]",
+            "in": "query",
+            "description": "Quantidade de itens para retornar por página",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "p[page]",
+            "in": "query",
+            "description": "Página a ser carregada",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "s[]",
+            "in": "query",
+            "description": "Ordena os resultados usando o campo desejado, pode ser asc (crescente) ou desc (decrescente)",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "q",
+            "in": "query",
+            "style": "deepObject",
+            "explode": true,
+            "description": "Filtra os resultados usando o campo desejado.",
+            "required": false,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "typeEq": {
+                  "type": "string",
+                  "example": "catching",
+                  "description": "Igual a"
+                },
+                "statusEq": {
+                  "type": "string",
+                  "example": "pending",
+                  "description": "Igual a"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListarConcessoesResponseFull"
+                }
+              }
+            },
+            "description": "Sucesso!"
+          },
+          "401": {
+            "description": "Você precisa entrar ou registrar-se antes de continuar.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UnauthorizedError"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Registro não encontrado."
+          }
+        },
+        "security": [
+          {
+            "Account": [],
+            "Authorization": []
+          }
+        ]
+      }
+    },
+    "/api/v2/concessions/{id}": {
+      "get": {
+        "tags": [
+          "Gestão de Titularidades"
+        ],
+        "summary": "Detalhes da concessão",
+        "description": "Exibe detalhes da concessão",
+        "operationId": "DetalhesDaConcessao",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Id da concessão",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DetalhesDaConcessaoResponseFull"
+                }
+              }
+            },
+            "description": "Sucesso!"
+          },
+          "401": {
+            "description": "Você precisa entrar ou registrar-se antes de continuar.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UnauthorizedError"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Registro não encontrado."
+          }
+        },
+        "security": [
+          {
+            "Account": [],
+            "Authorization": []
+          }
+        ]
+      }
+    }
+  },
     "/api/v2/concessions/return": {
       "post": {
         "tags": [
@@ -2949,151 +3095,6 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/VisualizarCedenteResponseFull"
-                }
-              }
-            },
-            "description": "Sucesso!"
-          },
-          "401": {
-            "description": "Você precisa entrar ou registrar-se antes de continuar.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/UnauthorizedError"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Registro não encontrado."
-          }
-        },
-        "security": [
-          {
-            "Account": [],
-            "Authorization": []
-          }
-        ]
-      }
-    },
-    "/api/v2/concessions": {
-      "get": {
-        "tags": [
-          "Gestão de Titularidades"
-        ],
-        "summary": "Listar Concessões",
-        "description": "Lista todas as concessões",
-        "operationId": "ListarConcessoes",
-        "parameters": [
-          {
-            "name": "p[per_page]",
-            "in": "query",
-            "description": "Quantidade de itens para retornar por página",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "p[page]",
-            "in": "query",
-            "description": "Página a ser carregada",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "s[]",
-            "in": "query",
-            "description": "Ordena os resultados usando o campo desejado, pode ser asc (crescente) ou desc (decrescente)",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "q",
-            "in": "query",
-            "style": "deepObject",
-            "explode": true,
-            "description": "Filtra os resultados usando o campo desejado.",
-            "required": false,
-            "schema": {
-              "type": "object",
-              "properties": {
-                "typeEq": {
-                  "type": "string",
-                  "example": "catching",
-                  "description": "Igual a"
-                },
-                "statusEq": {
-                  "type": "string",
-                  "example": "pending",
-                  "description": "Igual a"
-                }
-              }
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ListarConcessoesResponseFull"
-                }
-              }
-            },
-            "description": "Sucesso!"
-          },
-          "401": {
-            "description": "Você precisa entrar ou registrar-se antes de continuar.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/UnauthorizedError"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Registro não encontrado."
-          }
-        },
-        "security": [
-          {
-            "Account": [],
-            "Authorization": []
-          }
-        ]
-      }
-    },
-    "/api/v2/concessions/{id}": {
-      "get": {
-        "tags": [
-          "Gestão de Titularidades"
-        ],
-        "summary": "Detalhes da concessão",
-        "description": "Exibe detalhes da concessão",
-        "operationId": "DetalhesDaConcessao",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "Id da concessão",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/DetalhesDaConcessaoResponseFull"
                 }
               }
             },
