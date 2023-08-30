@@ -3800,7 +3800,7 @@
           }
         }
       },
-      "Pagination": {
+      "pagination": {
         "type": "object",
         "properties": {
           "currentPage": {
@@ -3865,6 +3865,9 @@
               }
             }
           },
+          "pagination": {
+            "type": "object",
+            "properties": {
           "currentPage": {
             "type": "integer",
             "example": 2,
@@ -3896,7 +3899,8 @@
             "description": "Número total de items em todas as páginas"
           }
         }
-      },
+      }
+    },
       "ListarCredoresDataAttributesResponse": {
         "type": "object",
         "properties": {
