@@ -2079,71 +2079,6 @@
         ]
       }
     },
-    "/api/v2/webhooks/{id}/update_state": {
-      "patch": {
-        "tags": [
-          "Notificações (webhook)"
-        ],
-        "summary": "Atualizar Webhook",
-        "description": "Ativar ou desativar um webhook existente",
-        "operationId": "AtualizarWebhook",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "Uuid do webhook",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/AtualizarWebhookResponseFull"
-                }
-              }
-            },
-            "description": "Sucesso!"
-          },
-          "401": {
-            "description": "Você precisa entrar ou registrar-se antes de continuar.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/UnauthorizedError"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Registro não encontrado."
-          },
-          "422": {
-            "description": "Não foi possível executar o que foi solicitado, por conter erros.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/UnprocessableEntityError"
-                }
-              }
-            }
-          }
-        },
-        "requestBody": {
-          "$ref": "#/components/requestBodies/AtualizarWebhook"
-        },
-        "security": [
-          {
-            "Account": [],
-            "Authorization": []
-          }
-        ]
-      }
-    },
     "/api/v2/webhooks": {
       "post": {
         "tags": [
@@ -2197,61 +2132,7 @@
             "Authorization": []
           }
         ]
-      }
-    },
-    "/api/v2/webhooks/{id}": {
-      "get": {
-        "tags": [
-          "Notificações (webhook)"
-        ],
-        "summary": "Visualizar Webhook",
-        "description": "Exibir as informações de um webhook existente",
-        "operationId": "VisualizarWebhook",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "Uuid do webhook",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/VisualizarWebhookResponseFull"
-                }
-              }
-            },
-            "description": "Sucesso!"
-          },
-          "401": {
-            "description": "Você precisa entrar ou registrar-se antes de continuar.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/UnauthorizedError"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Registro não encontrado."
-          }
-        },
-        "security": [
-          {
-            "Account": [],
-            "Authorization": []
-          }
-        ]
-      }
-    },
-    "/api/v2/webhooks": {
+      },
       "get": {
         "tags": [
           "Notificações (webhook)"
@@ -2350,6 +2231,123 @@
           "404": {
             "description": "Registro não encontrado."
           }
+        },
+        "security": [
+          {
+            "Account": [],
+            "Authorization": []
+          }
+        ]
+      }
+    },
+    "/api/v2/webhooks/{id}": {
+      "get": {
+        "tags": [
+          "Notificações (webhook)"
+        ],
+        "summary": "Visualizar Webhook",
+        "description": "Exibir as informações de um webhook existente",
+        "operationId": "VisualizarWebhook",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Uuid do webhook",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VisualizarWebhookResponseFull"
+                }
+              }
+            },
+            "description": "Sucesso!"
+          },
+          "401": {
+            "description": "Você precisa entrar ou registrar-se antes de continuar.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UnauthorizedError"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Registro não encontrado."
+          }
+        },
+        "security": [
+          {
+            "Account": [],
+            "Authorization": []
+          }
+        ]
+      }
+    },
+    "/api/v2/webhooks/{id}/update_state": {
+      "patch": {
+        "tags": [
+          "Notificações (webhook)"
+        ],
+        "summary": "Atualizar Webhook",
+        "description": "Ativar ou desativar uma regra de webhook existente",
+        "operationId": "AtualizarWebhook",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Uuid do webhook",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AtualizarWebhookResponseFull"
+                }
+              }
+            },
+            "description": "Sucesso!"
+          },
+          "401": {
+            "description": "Você precisa entrar ou registrar-se antes de continuar.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UnauthorizedError"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Registro não encontrado."
+          },
+          "422": {
+            "description": "Não foi possível executar o que foi solicitado, por conter erros.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UnprocessableEntityError"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "$ref": "#/components/requestBodies/AtualizarWebhook"
         },
         "security": [
           {
