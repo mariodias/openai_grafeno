@@ -9064,8 +9064,8 @@
             "description": "Tipo do Recurso"
           },
           "attributes": {
-            "type": "array",
-            "items": {
+            "type": "object",
+            "properties": {
               "$ref": "#/components/schemas/ListarMovimentacoesDataAttributesResponse"
             }
           }
