@@ -11873,7 +11873,7 @@
           "createdAt": {
             "example": "2021-01-01T00:00:00.000-03:00",
             "type": "string",
-            "description": "Data de criação"
+            "description": "Data de criação da transferência"
           },
           "value": {
             "example": "100.0",
@@ -11883,7 +11883,22 @@
           "source": {
             "example": "grafeno",
             "type": "string",
-            "description": "Fonte"
+            "description": "Origem da transferência"
+          },
+          "transferStatus": {
+            "example": "null",
+            "type": "string",
+            "description": "Status da transferência"
+          },
+          "transferMethod": {
+            "example": "ted",
+            "type": "string",
+            "description": "Método de transferência"
+          },
+          "approvalStatus": {
+            "example": "pending",
+            "type": "string",
+            "description": "Status da aprovação"
           }
         }
       },
