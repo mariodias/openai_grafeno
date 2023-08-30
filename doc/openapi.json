@@ -8874,8 +8874,18 @@
           "releaseAt": {
             "example": "2021-01-01T00:00:00.000-03:00",
             "type": "string",
-            "description": "Data de Liberação"
-          }
+            "description": "Data de liberação do Beneficiário"
+          },
+          "createdAt": {
+            "example": "2021-01-01T00:00:00.000-03:00",
+            "type": "string",
+            "description": "Data de criação do Beneficiário"
+          },
+          "updatedAt": {
+            "example": "2021-01-01T00:00:00.000-03:00",
+            "type": "string",
+            "description": "Data de atualização do Beneficiário"
+          },
         }
       },
       "ListarBeneficiarioDataResponse": {
@@ -8897,7 +8907,7 @@
         }
       },
       "ListarBeneficiarioResponse": {
-        "type": "object",
+        "type": "array",
         "properties": {
           "data": {
             "$ref": "#/components/schemas/ListarBeneficiarioDataResponse"
