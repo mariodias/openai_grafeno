@@ -8892,10 +8892,7 @@
             "description": "Tipo do Recurso"
           },
           "attributes": {
-            "type": "object",
-            "items": {
               "$ref": "#/components/schemas/ListarBeneficiarioDataAttributesResponse"
-            }
           }
         }
       },
