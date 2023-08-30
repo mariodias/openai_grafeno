@@ -11905,8 +11905,18 @@
       "NovaTransferenciaDataAttributesResponse": {
         "type": "object",
         "properties": {
+          "apiPartnerTransactionUuid": {
+            "example": "3f872c67-ce69-420d-a626-0df73664cac1",
+            "type": "string",
+            "description": "Uuid da transferência"
+          },
           "originBankAccount": {
             "$ref": "#/components/schemas/NovaTransferenciaDataAttributesOriginBankAccountResponse"
+          },
+          "associatedFund": {
+            "example": "null",
+            "type": "string",
+            "description": "Fundo associado"
           },
           "beneficiary": {
             "$ref": "#/components/schemas/NovaTransferenciaDataAttributesBeneficiaryResponse"
@@ -11919,6 +11929,11 @@
       "NovaTransferenciaDataResponse": {
         "type": "object",
         "properties": {
+          "id": {
+            "example": "03c32370-16ac-44e0-9894-fafc99621bc2",
+            "type": "string",
+            "description": "Id da transferência"
+          },
           "type": {
             "example": "transferRequest",
             "type": "string",
