@@ -1878,13 +1878,68 @@
         ]
       }
     },
+     "/api/v2/transfer_requests": {
+      "post": {
+        "tags": [
+          "Transferências Bancárias"
+        ],
+        "summary": "Criar transferência",
+        "description": "Criar uma transferência.",
+        "operationId": "NovaTransferencia",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NovaTransferenciaResponseFull"
+                }
+              }
+            },
+            "description": "Sucesso!"
+          },
+          "401": {
+            "description": "Você precisa entrar ou registrar-se antes de continuar.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UnauthorizedError"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Registro não encontrado."
+          },
+          "422": {
+            "description": "Não foi possível executar o que foi solicitado, por conter erros.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UnprocessableEntityError"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "$ref": "#/components/requestBodies/NovaTransferencia"
+        },
+        "security": [
+          {
+            "Account": [],
+            "Authorization": []
+          }
+        ]
+      }
+    },
     "/api/v2/transfer_requests/pending": {
       "get": {
         "tags": [
           "Transferências Bancárias"
         ],
-        "summary": "Listar transferência",
-        "description": "Listagem das transferências pendentes",
+        "summary": "Listar transferências",
+        "description": "Listar transferências pendentes de aprovação",
         "operationId": "ListarTransferencia",
         "parameters": [
           {
@@ -1965,7 +2020,7 @@
           "Transferências Bancárias"
         ],
         "summary": "Atualizar transferência",
-        "description": "Aprovar ou Rejeitar transferências pendentes",
+        "description": "Aprovar ou Rejeitar uma transferência",
         "operationId": "AtualizarTransferencia",
         "parameters": [
           {
@@ -2015,61 +2070,6 @@
         },
         "requestBody": {
           "$ref": "#/components/requestBodies/AtualizarTransferencia"
-        },
-        "security": [
-          {
-            "Account": [],
-            "Authorization": []
-          }
-        ]
-      }
-    },
-    "/api/v2/transfer_requests": {
-      "post": {
-        "tags": [
-          "Transferências Bancárias"
-        ],
-        "summary": "Nova transferência",
-        "description": "Este endpoint é usado para criar uma transferência no sistema.",
-        "operationId": "NovaTransferencia",
-        "parameters": [],
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/NovaTransferenciaResponseFull"
-                }
-              }
-            },
-            "description": "Sucesso!"
-          },
-          "401": {
-            "description": "Você precisa entrar ou registrar-se antes de continuar.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/UnauthorizedError"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Registro não encontrado."
-          },
-          "422": {
-            "description": "Não foi possível executar o que foi solicitado, por conter erros.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/UnprocessableEntityError"
-                }
-              }
-            }
-          }
-        },
-        "requestBody": {
-          "$ref": "#/components/requestBodies/NovaTransferencia"
         },
         "security": [
           {
