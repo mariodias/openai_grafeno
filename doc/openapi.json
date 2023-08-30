@@ -12086,10 +12086,7 @@
             "description": "Tipo do Recurso"
           },
           "attributes": {
-            "type": "array",
-            "items": {
               "$ref": "#/components/schemas/ListarWebhooksDataAttributesResponse"
-            }
           }
         }
       },
