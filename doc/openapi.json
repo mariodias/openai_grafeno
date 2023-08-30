@@ -2357,7 +2357,7 @@
         ]
       }
     },
-    "/api/v2/webhooks/{id}": {
+    "22/api/v2/webhooks/{id}": {
       "delete": {
         "tags": [
           "Notificações (webhook)"
@@ -3800,7 +3800,7 @@
           }
         }
       },
-      "pagination": {
+      "Pagination": {
         "type": "object",
         "properties": {
           "currentPage": {
@@ -3900,7 +3900,8 @@
           }
         }
       }
-    },
+    }
+  },
       "ListarCredoresDataAttributesResponse": {
         "type": "object",
         "properties": {
@@ -13378,4 +13379,4 @@
       }
     }
   }
-}}
+}
