@@ -8907,10 +8907,13 @@
         }
       },
       "ListarBeneficiarioResponse": {
-        "type": "array",
+        "type": "object",
         "properties": {
           "data": {
+            "type": "array",
+            "items": {
             "$ref": "#/components/schemas/ListarBeneficiarioDataResponse"
+            }
           },
           "meta": {
             "$ref": "#/components/schemas/FilterAndPagination"
