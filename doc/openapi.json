@@ -2290,6 +2290,49 @@
             "Authorization": []
           }
         ]
+      },
+      "delete": {
+        "tags": [
+          "Notificações (webhook)"
+        ],
+        "summary": "Remover Webhook",
+        "description": "Remover permanentemente um webhook.",
+        "operationId": "RemoverWebhook",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Uuid do webhook",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Sucesso!"
+          },
+          "401": {
+            "description": "Você precisa entrar ou registrar-se antes de continuar.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UnauthorizedError"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Registro não encontrado."
+          }
+        },
+        "security": [
+          {
+            "Account": [],
+            "Authorization": []
+          }
+        ]
       }
     },
     "/api/v2/webhooks/{id}/update_state": {
@@ -2348,51 +2391,6 @@
         },
         "requestBody": {
           "$ref": "#/components/requestBodies/AtualizarWebhook"
-        },
-        "security": [
-          {
-            "Account": [],
-            "Authorization": []
-          }
-        ]
-      }
-    },
-    "/api/v2/webhooks/{id}": {
-      "delete": {
-        "tags": [
-          "Notificações (webhook)"
-        ],
-        "summary": "Remover Webhook",
-        "description": "Remover permanentemente um webhook.",
-        "operationId": "RemoverWebhook",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "Uuid do webhook",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Sucesso!"
-          },
-          "401": {
-            "description": "Você precisa entrar ou registrar-se antes de continuar.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/UnauthorizedError"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Registro não encontrado."
-          }
         },
         "security": [
           {
