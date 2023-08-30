@@ -8906,17 +8906,17 @@
           }
         }
       },
-      "ListarBeneficiarioResponse": {
+"ListarBeneficiarioResponse": {
+        "type": "object",
+        "properties": {
           "data": {
-            "type": "array",
-            "items": {
             "$ref": "#/components/schemas/ListarBeneficiarioDataResponse"
-            }
           },
           "meta": {
             "$ref": "#/components/schemas/FilterAndPagination"
           }
-        },
+        }
+      },
       "ListarBeneficiarioResponseFull": {
         "$ref": "#/components/schemas/ListarBeneficiarioResponse"
       },
