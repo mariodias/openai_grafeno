@@ -900,7 +900,7 @@
           "Contas Bancárias"
         ],
         "summary": "Listar Contas Bancárias",
-        "description": "Listar contas Grafeno",
+        "description": "Listar contas Grafeno.",
         "operationId": "ListarContasBancarias",
         "parameters": [
           {
@@ -969,7 +969,7 @@
           "Contas Bancárias"
         ],
         "summary": "Visualizar Saldo",
-        "description": "Obter saldo da conta Grafeno",
+        "description": "Obter saldo da conta Grafeno.",
         "operationId": "VisualizarSaldo",
         "parameters": [
           {
@@ -1168,7 +1168,7 @@
           "Cobranças"
         ],
         "summary": "Criar Cobrança",
-        "description": "Criar uma cobrança",
+        "description": "Criar uma cobrança.",
         "operationId": "CriarCobranca",
         "parameters": [],
         "responses": {
@@ -1221,7 +1221,7 @@
           "Cobranças"
         ],
         "summary": "Listar Cobranças",
-        "description": "Listar cobranças",
+        "description": "Listar cobranças.",
         "operationId": "ListarCobrancas",
         "parameters": [
           {
@@ -1369,7 +1369,7 @@
           "Cobranças"
         ],
         "summary": "Visualizar detalhes de uma cobrança",
-        "description": "Visualizar as informações de uma cobrança existente",
+        "description": "Visualizar as informações de uma cobrança existente.",
         "operationId": "VisualizarCobranca",
         "parameters": [
           {
@@ -1419,7 +1419,7 @@
           "Cobranças"
         ],
         "summary": "Atualizar Cobrança",
-        "description": "Atualizar uma cobrança existente",
+        "description": "Atualizar uma cobrança existente.",
         "operationId": "AtualizarCobranca",
         "parameters": [
           {
@@ -1484,7 +1484,7 @@
           "Cobranças"
         ],
         "summary": "Dar baixa em Cobrança",
-        "description": "Dar baixa em uma cobrança existente",
+        "description": "Dar baixa em uma cobrança existente.",
         "operationId": "DarBaixaEmCobranca",
         "parameters": [
           {
@@ -1626,7 +1626,7 @@
           "Cobranças"
         ],
         "summary": "Listar CNAB",
-        "description": "Listar aquivos CNAB de retorno.",
+        "description": "Listar arquivos de retorno (CNAB).",
         "operationId": "ListarCNAB",
         "parameters": [
           {
@@ -1723,7 +1723,7 @@
           "Beneficiários"
         ],
         "summary": "Criar Beneficiário",
-        "description": "Criar beneficiário para a conta grafeno",
+        "description": "Criar um beneficiário para a conta grafeno.",
         "operationId": "CriarBeneficiario",
         "parameters": [],
         "responses": {
@@ -1776,7 +1776,7 @@
           "Beneficiários"
         ],
         "summary": "Listar Beneficiários",
-        "description": "Listar beneficiários da conta Grafeno",
+        "description": "Listar beneficiários da conta Grafeno.",
         "operationId": "ListarBeneficiario",
         "parameters": [
           {
@@ -1939,7 +1939,7 @@
           "Transferências Bancárias"
         ],
         "summary": "Listar transferências",
-        "description": "Listar transferências pendentes de aprovação",
+        "description": "Listar transferências pendentes de aprovação.",
         "operationId": "ListarTransferencia",
         "parameters": [
           {
@@ -2020,7 +2020,7 @@
           "Transferências Bancárias"
         ],
         "summary": "Atualizar transferência",
-        "description": "Aprovar ou Rejeitar uma transferência",
+        "description": "Aprovar ou Rejeitar uma transferência.",
         "operationId": "AtualizarTransferencia",
         "parameters": [
           {
@@ -2085,7 +2085,7 @@
           "Notificações (webhook)"
         ],
         "summary": "Criar Webhook",
-        "description": "Criar uma regra de notificação (webhook)",
+        "description": "Criar uma regra de notificação (webhook).",
         "operationId": "CriarWebhook",
         "parameters": [],
         "responses": {
@@ -2138,7 +2138,7 @@
           "Notificações (webhook)"
         ],
         "summary": "Listar Webhooks",
-        "description": "Listar todos os Webhooks cadastrados",
+        "description": "Listar todos os Webhooks cadastrados.",
         "operationId": "ListarWebhooks",
         "parameters": [
           {
@@ -2246,7 +2246,7 @@
           "Notificações (webhook)"
         ],
         "summary": "Visualizar Webhook",
-        "description": "Exibir as informações de um webhook existente",
+        "description": "Exibir as informações de um webhook existente.",
         "operationId": "VisualizarWebhook",
         "parameters": [
           {
@@ -2298,7 +2298,7 @@
           "Notificações (webhook)"
         ],
         "summary": "Atualizar Webhook",
-        "description": "Ativar ou desativar uma regra de webhook existente",
+        "description": "Ativar ou desativar uma regra de webhook existente.",
         "operationId": "AtualizarWebhook",
         "parameters": [
           {
@@ -2363,7 +2363,7 @@
           "Notificações (webhook)"
         ],
         "summary": "Remover Webhook",
-        "description": "Remover permanentemente um webhook",
+        "description": "Remover permanentemente um webhook.",
         "operationId": "RemoverWebhook",
         "parameters": [
           {
