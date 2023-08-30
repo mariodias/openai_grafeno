@@ -11708,6 +11708,11 @@
       "ListarTransferenciaDataAttributesBeneficiaryResponse": {
         "type": "object",
         "properties": {
+          "companyName": {
+            "example": "Tesla X",
+            "type": "string",
+            "description": "Nome da empresa"
+          },
           "destinationAccount": {
             "$ref": "#/components/schemas/ListarTransferenciaDataAttributesBeneficiaryDestinationAccountResponse"
           }
@@ -11730,14 +11735,39 @@
             "example": "grafeno",
             "type": "string",
             "description": "Fonte"
+          },
+          "transferStatus": {
+            "example": "null",
+            "type": "string",
+            "description": "Status da transferência"
+          },
+          "transferMethod": {
+            "example": "ted",
+            "type": "string",
+            "description": "Método de transferência"
+          },
+          "approvalStatus": {
+            "example": "pending",
+            "type": "string",
+            "description": "Status da aprovação"
           }
         }
       },
       "ListarTransferenciaDataAttributesResponse": {
         "type": "object",
         "properties": {
+          "apiPartnerTransactionUuid": {
+            "example": "3f872c67-ce69-420d-a626-0df73664cac1",
+            "type": "string",
+            "description": "Uuid da transferência"
+          },
           "originBankAccount": {
             "$ref": "#/components/schemas/ListarTransferenciaDataAttributesOriginBankAccountResponse"
+          },
+          "associatedFund": {
+            "example": "null",
+            "type": "string",
+            "description": "Fundo associado"
           },
           "beneficiary": {
             "$ref": "#/components/schemas/ListarTransferenciaDataAttributesBeneficiaryResponse"
@@ -11750,20 +11780,18 @@
       "ListarTransferenciaDataResponse": {
         "type": "object",
         "properties": {
+          "id": {
+            "example": "03c32370-16ac-44e0-9894-fafc99621bc2",
+            "type": "string",
+            "description": "Id da transferência"
+          },
           "type": {
             "example": "transferRequest",
             "type": "string",
             "description": "Tipo do Recurso"
           },
           "attributes": {
-            "type": "array",
-            "items": {
               "$ref": "#/components/schemas/ListarTransferenciaDataAttributesResponse"
-            }
-          },
-          "id": {
-            "type": "string",
-            "description": "Id do Recurso"
           }
         }
       },
@@ -11771,8 +11799,11 @@
         "type": "object",
         "properties": {
           "data": {
+            "type": "array",
+            "items": {
             "$ref": "#/components/schemas/ListarTransferenciaDataResponse"
-          },
+          }
+        },
           "meta": {
             "$ref": "#/components/schemas/FilterAndPagination"
           }
