@@ -12007,7 +12007,7 @@
             "description": "Status do Webhook"
           },
             "extraHeaders": {
-            "example": "{'header-id': 'f93ad812a0a2acbb2ba2c25ff7064f69'}",
+            "example": "{header-id: f93ad812a0a2acbb2ba2c25ff7064f69}",
             "type": "string",
             "description": "Headers adicionais do webhook"
           }
@@ -12064,14 +12064,14 @@
             "example": true,
             "type": "boolean",
             "description": "Status do Webhook"
-          }
-        },
+          },
           "extraHeaders": {
             "example": "{'header-id': 'f93ad812a0a2acbb2ba2c25ff7064f69'}",
             "type": "string",
             "description": "Headers adicionais do webhook"
           }
-      },
+      }
+    },
       "ListarWebhooksDataResponse": {
         "type": "object",
         "properties": {
