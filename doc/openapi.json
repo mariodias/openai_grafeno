@@ -11815,6 +11815,11 @@
       "AtualizarTransferenciaDataAttributesResponse": {
         "type": "object",
         "properties": {
+          "apiPartnerTransactionUuid": {
+            "example": "3f872c67-ce69-420d-a626-0df73664cac1",
+            "type": "string",
+            "description": "Uuid da transferência"
+          },
           "state": {
             "example": "pending",
             "type": "string",
@@ -11825,6 +11830,11 @@
       "AtualizarTransferenciaDataResponse": {
         "type": "object",
         "properties": {
+          "id": {
+            "example": "03c32370-16ac-44e0-9894-fafc99621bc2",
+            "type": "string",
+            "description": "Id da transferência"
+          },
           "type": {
             "example": "transferRequestCompact",
             "type": "string",
@@ -11832,10 +11842,6 @@
           },
           "attributes": {
             "$ref": "#/components/schemas/AtualizarTransferenciaDataAttributesResponse"
-          },
-          "id": {
-            "type": "string",
-            "description": "Id do Recurso"
           }
         }
       },
