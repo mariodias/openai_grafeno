@@ -8907,8 +8907,6 @@
         }
       },
       "ListarBeneficiarioResponse": {
-        "type": "object",
-        "properties": {
           "data": {
             "type": "array",
             "items": {
@@ -8918,8 +8916,7 @@
           "meta": {
             "$ref": "#/components/schemas/FilterAndPagination"
           }
-        }
-      },
+        },
       "ListarBeneficiarioResponseFull": {
         "$ref": "#/components/schemas/ListarBeneficiarioResponse"
       },
