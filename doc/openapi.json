@@ -9064,8 +9064,8 @@
             "description": "Tipo do Recurso"
           },
           "attributes": {
-            "type": "object",
-            "properties": {
+            "type": "array",
+            "items": {
               "$ref": "#/components/schemas/ListarMovimentacoesDataAttributesResponse"
             }
           }
@@ -9075,8 +9075,11 @@
         "type": "object",
         "properties": {
           "data": {
+            "type": "array",
+            "items": {
             "$ref": "#/components/schemas/ListarMovimentacoesDataResponse"
-          },
+          }
+        },
           "meta": {
             "$ref": "#/components/schemas/FilterAndPagination"
           }
