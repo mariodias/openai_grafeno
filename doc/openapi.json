@@ -11862,6 +11862,11 @@
       "NovaTransferenciaDataAttributesBeneficiaryResponse": {
         "type": "object",
         "properties": {
+          "companyName": {
+            "example": "Tesla X",
+            "type": "string",
+            "description": "Nome da empresa"
+          },
           "destinationAccount": {
             "$ref": "#/components/schemas/NovaTransferenciaDataAttributesBeneficiaryDestinationAccountResponse"
           }
@@ -11941,10 +11946,6 @@
           },
           "attributes": {
             "$ref": "#/components/schemas/NovaTransferenciaDataAttributesResponse"
-          },
-          "id": {
-            "type": "string",
-            "description": "Id do Recurso"
           }
         }
       },
