@@ -2357,7 +2357,7 @@
         ]
       }
     },
-    "22/api/v2/webhooks/{id}": {
+    "/api/v2/webhooks/{id}": {
       "delete": {
         "tags": [
           "Notificações (webhook)"
