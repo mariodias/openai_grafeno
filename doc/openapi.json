@@ -12094,8 +12094,11 @@
         "type": "object",
         "properties": {
           "data": {
+            "type": "array",
+            "items": {
             "$ref": "#/components/schemas/ListarWebhooksDataResponse"
-          },
+          }
+        },
           "meta": {
             "$ref": "#/components/schemas/FilterAndPagination"
           }
