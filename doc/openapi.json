@@ -1712,7 +1712,7 @@
         },
         "security": [
           {
-            "Account": []
+            "Account": [],
             "Authorization": []
           }
         ]
