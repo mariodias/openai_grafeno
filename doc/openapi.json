@@ -3503,17 +3503,19 @@
                 "dueDate": {
                   "type": "string",
                   "description": "Data de vencimento",
-                  "example": "2021-07-01"
+                  "example": "2023-12-01"
                 },
                 "value": {
-                  "type": "integer",
+                  "type": "numeric",
+                  "format": "double",
                   "description": "Valor da cobrança",
-                  "example": 200
+                  "example": 200.99
                 },
                 "abatementValue": {
-                  "type": "integer",
+                  "type": "numeric",
+                  "format": "double",
                   "description": "Valor do abatimento",
-                  "example": 50
+                  "example": 3.5
                 },
                 "interestType": {
                   "type": "string",
@@ -3521,12 +3523,14 @@
                   "example": "percentage"
                 },
                 "interestValue": {
-                  "type": "integer",
+                  "type": "numeric",
+                  "format": "double",
                   "description": "Valor dos juros mensais",
                   "example": 0.2
                 },
                 "applicableFine": {
-                  "type": "integer",
+                  "type": "numeric",
+                  "format": "double",
                   "description": "Valor da multa por atraso",
                   "example": 0.2
                 },
