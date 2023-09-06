@@ -3506,13 +3506,13 @@
                   "example": "2023-12-01"
                 },
                 "value": {
-                  "type": "numeric",
+                  "type": "number",
                   "format": "double",
                   "description": "Valor da cobrança",
                   "example": 200.99
                 },
                 "abatementValue": {
-                  "type": "numeric",
+                  "type": "number",
                   "format": "double",
                   "description": "Valor do abatimento",
                   "example": 3.5
@@ -3523,13 +3523,13 @@
                   "example": "percentage"
                 },
                 "interestValue": {
-                  "type": "numeric",
+                  "type": "number",
                   "format": "double",
                   "description": "Valor dos juros mensais",
                   "example": 0.2
                 },
                 "applicableFine": {
-                  "type": "numeric",
+                  "type": "number",
                   "format": "double",
                   "description": "Valor da multa por atraso",
                   "example": 0.2
