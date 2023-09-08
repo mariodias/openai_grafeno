@@ -9557,21 +9557,6 @@
           "payments": {
             "$ref": "#/components/schemas/DarBaixaEmCobrancaDataAttributesPaymentsResponse"
           },
-          "origin": {
-            "example": "unknown",
-            "type": "string",
-            "description": "Origem da cobrança"
-          },
-          "expiresAfter": {
-            "example": 90,
-            "type": "integer",
-            "description": "Dias para baixa após o vencimento"
-          },
-          "titleType": {
-            "example": "trade_bill",
-            "type": "string",
-            "description": "Natureza da cobrança"
-          },
           "pixData": {
             "$ref": "#/components/schemas/DarBaixaEmCobrancaDataAttributesPixDataResponse"
           },
@@ -9607,6 +9592,21 @@
             "example": "51080701212344000127550010000000981364117781",
             "type": "string",
             "description": "Chave da NF-e associada a cobrança"
+          },
+          "origin": {
+            "example": "api",
+            "type": "string",
+            "description": "Origem da cobrança"
+          },
+          "expiresAfter": {
+            "example": 90,
+            "type": "integer",
+            "description": "Dias para baixa após o vencimento"
+          },
+          "titleType": {
+            "example": "trade_bill",
+            "type": "string",
+            "description": "Natureza da cobrança"
           }
         }
       },
@@ -9760,7 +9760,7 @@
             "description": "Atualizado em"
           },
           "origin": {
-            "example": "unknown",
+            "example": "api",
             "type": "string",
             "description": "Origem da cobrança"
           },
@@ -10230,21 +10230,6 @@
           "payments": {
             "$ref": "#/components/schemas/CriarCobrancaDataAttributesPaymentsResponse"
           },
-          "origin": {
-            "example": "unknown",
-            "type": "string",
-            "description": "Origem da cobrança"
-          },
-          "expiresAfter": {
-            "example": 90,
-            "type": "integer",
-            "description": "Dias para baixa após o vencimento"
-          },
-          "titleType": {
-            "example": "trade_bill",
-            "type": "string",
-            "description": "Natureza da cobrança"
-          },
           "pixData": {
             "$ref": "#/components/schemas/CriarCobrancaDataAttributesPixDataResponse"
           },
@@ -10278,6 +10263,21 @@
             "example": "51080701212344000127550010000000981364117781",
             "type": "string",
             "description": "Chave da NF-e associada a cobrança"
+          },
+          "origin": {
+            "example": "api",
+            "type": "string",
+            "description": "Origem da cobrança"
+          },
+          "expiresAfter": {
+            "example": 90,
+            "type": "integer",
+            "description": "Dias para baixa após o vencimento"
+          },
+          "titleType": {
+            "example": "trade_bill",
+            "type": "string",
+            "description": "Natureza da cobrança"
           }
         }
       },
@@ -11342,21 +11342,6 @@
           "payments": {
             "$ref": "#/components/schemas/AtualizarCobrancaDataAttributesPaymentsResponse"
           },
-          "origin": {
-            "example": "unknown",
-            "type": "string",
-            "description": "Origem da cobrança"
-          },
-          "expiresAfter": {
-            "example": 90,
-            "type": "integer",
-            "description": "Dias para baixa após o vencimento"
-          },
-          "titleType": {
-            "example": "trade_bill",
-            "type": "string",
-            "description": "Natureza da cobrança"
-          },
           "pixData": {
             "$ref": "#/components/schemas/AtualizarCobrancaDataAttributesPixDataResponse"
           },
@@ -11392,6 +11377,21 @@
             "example": "51080701212344000127550010000000981364117781",
             "type": "string",
             "description": "Chave da NF-e associada a cobrança"
+          },
+          "origin": {
+            "example": "api",
+            "type": "string",
+            "description": "Origem da cobrança"
+          },
+          "expiresAfter": {
+            "example": 90,
+            "type": "integer",
+            "description": "Dias para baixa após o vencimento"
+          },
+          "titleType": {
+            "example": "trade_bill",
+            "type": "string",
+            "description": "Natureza da cobrança"
           }
         }
       },
@@ -12728,7 +12728,7 @@
             "description": "Número de controle do cliente"
           },
           "origin": {
-            "example": "unknown",
+            "example": "api",
             "type": "string",
             "description": "Origem da criação"
           },
