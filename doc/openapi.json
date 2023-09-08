@@ -1172,7 +1172,7 @@
         "operationId": "CriarCobranca",
         "parameters": [],
         "responses": {
-          "200": {
+          "201": {
             "content": {
               "application/json": {
                 "schema": {
@@ -10862,21 +10862,6 @@
           "payments": {
             "$ref": "#/components/schemas/VisualizarCobrancaDataAttributesPaymentsResponse"
           },
-          "origin": {
-            "example": "unknown",
-            "type": "string",
-            "description": "Origem da cobrança"
-          },
-          "expiresAfter": {
-            "example": 90,
-            "type": "integer",
-            "description": "Dias para baixa após o vencimento"
-          },
-          "titleType": {
-            "example": "trade_bill",
-            "type": "string",
-            "description": "Natureza da cobrança"
-          },
           "pixData": {
             "$ref": "#/components/schemas/VisualizarCobrancaDataAttributesPixDataResponse"
           },
@@ -10911,6 +10896,21 @@
             "example": "51080701212344000127550010000000981364117781",
             "type": "string",
             "description": "Chave da NF-e associada a cobrança"
+          },
+          "origin": {
+            "example": "api",
+            "type": "string",
+            "description": "Origem da cobrança"
+          },
+          "expiresAfter": {
+            "example": 90,
+            "type": "integer",
+            "description": "Dias para baixa após o vencimento"
+          },
+          "titleType": {
+            "example": "trade_bill",
+            "type": "string",
+            "description": "Natureza da cobrança"
           }
         }
       },
