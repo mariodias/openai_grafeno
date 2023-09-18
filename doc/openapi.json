@@ -3509,6 +3509,9 @@
     "/concessions/assignors/{id}/revoke": {
       "patch": {
         "summary": "Revogar acesso",
+        "parameters":
+            "in": "path"
+            "name": "id"
         "description": "Revoga acesso.",
         "operationId": "revogar-acesso",
         "responses": {
