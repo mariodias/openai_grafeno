@@ -34,7 +34,7 @@
     "/statement_entries": {
       "get": {
         "summary": "Listar Movimentações da Conta",
-        "description": "Esse Endpoint retorna todas as movimentações das contas bancárias",
+        "description": "Esse Endpot retorna todas as movimentações das contas bancárias",
         "operationId": "listar-movimentações-da-conta",
         "parameters": [
           {
@@ -3515,6 +3515,11 @@
             "name": "id",
             "description": "Revoga acesso.",
             "operationId": "revogar-acesso",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
             "responses": {
               "200": {
                 "description": "200",
@@ -3636,7 +3641,6 @@
             },
             "deprecated": false
           }
-        ]
       },
       "/concessions/assignors/{id}": {
         "get": {
@@ -3864,4 +3868,3 @@
     },
     "x-readme-fauxas": true
   }
-}
