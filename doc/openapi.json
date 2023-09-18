@@ -3509,12 +3509,12 @@
     "/concessions/assignors/{id}/revoke": {
       "patch": {
         "summary": "Revogar acesso",
+        "operationId": "revogar-acesso",
         "parameters": [
           {
             "in": "path",
             "name": "id",
             "description": "Revoga acesso.",
-            "operationId": "revogar-acesso",
             "required": true,
             "schema": {
               "type": "string"
