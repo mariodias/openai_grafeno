@@ -3509,314 +3509,341 @@
     "/concessions/assignors/{id}/revoke": {
       "patch": {
         "summary": "Revogar acesso",
-        "parameters":
-            "in": "path"
-            "name": "id"
-        "description": "Revoga acesso.",
-        "operationId": "revogar-acesso",
-        "responses": {
-          "200": {
-            "description": "200",
-            "content": {
-              "application/json": {
-                "examples": {
-                  "Result": {
-                    "value": "{\n  \"data\": {\n    \"id\": \"d8d74d12-88db-4b51-a6ca-6ac7bdd6cc23\",\n    \"type\": \"assignor\",\n    \"attributes\": {\n      \"createdAt\": \"2021-01-01T00:00:00.000-03:00\",\n      \"updatedAt\": \"2021-01-01T00:00:00.000-03:00\",\n      \"status\": \"pending\",\n      \"agency\": \"0001\",\n      \"accountNumber\": \"00001111-4\",\n      \"documentNumber\": \"26146719000129\",\n      \"name\": \"Grafeno - Cliente principal\",\n      \"agreeType\": \"manual\"\n    }\n  }\n}"
-                  }
-                },
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "data": {
-                      "type": "object",
-                      "properties": {
-                        "id": {
-                          "type": "string",
-                          "example": "d8d74d12-88db-4b51-a6ca-6ac7bdd6cc23"
-                        },
-                        "type": {
-                          "type": "string",
-                          "example": "assignor"
-                        },
-                        "attributes": {
-                          "type": "object",
-                          "properties": {
-                            "createdAt": {
-                              "type": "string",
-                              "example": "2021-01-01T00:00:00.000-03:00"
-                            },
-                            "updatedAt": {
-                              "type": "string",
-                              "example": "2021-01-01T00:00:00.000-03:00"
-                            },
-                            "status": {
-                              "type": "string",
-                              "example": "pending"
-                            },
-                            "agency": {
-                              "type": "string",
-                              "example": "0001"
-                            },
-                            "accountNumber": {
-                              "type": "string",
-                              "example": "00001111-4"
-                            },
-                            "documentNumber": {
-                              "type": "string",
-                              "example": "26146719000129"
-                            },
-                            "name": {
-                              "type": "string",
-                              "example": "Grafeno - Cliente principal"
-                            },
-                            "agreeType": {
-                              "type": "string",
-                              "example": "manual"
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "400",
-            "content": {
-              "application/json": {
-                "examples": {
-                  "Result": {
-                    "value": "{\n    \"success\": false,\n    \"message\": \"Número de conta inválido.\"\n}"
-                  }
-                },
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "success": {
-                      "type": "boolean",
-                      "example": false,
-                      "default": true
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "Número de conta inválido."
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "401",
-            "content": {
-              "application/json": {
-                "examples": {
-                  "Result": {
-                    "value": "{\n  \"errors\": [\n    \"Você precisa entrar ou registrar-se antes de continuar.\"\n  ]\n}"
-                  }
-                },
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "errors": {
-                      "type": "array",
-                      "items": {
-                        "type": "string",
-                        "example": "Você precisa entrar ou registrar-se antes de continuar."
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
-        "deprecated": false
-      }
-    },
-    "/concessions/assignors/{id}": {
-      "get": {
-        "summary": "Obter detalhes do cedente",
-        "description": "Exibe as informações de um cedente.",
-        "operationId": "obter-detalhes-do-cedente",
         "parameters": [
           {
-            "name": "p[per_page]",
-            "in": "query",
-            "description": "Quantidade de itens para retornar por página",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "p[page]",
-            "in": "query",
-            "description": "Página a ser carregada",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "s[]",
-            "in": "query",
-            "description": "Ordena os resultados usando o campo desejado, pode ser asc (crescente) ou desc (decrescente)",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "q",
-            "in": "query",
-            "description": "Filtra os resultados usando o campo desejado.",
-            "schema": {
-              "properties": {
-                "paymentMethodEq": {
-                  "type": "string"
-                },
-                "statusEq": {
-                  "type": "string"
-                },
-                "dueDateEq": {
-                  "type": "string"
-                },
-                "dueDateGteq": {
-                  "type": "string"
-                },
-                "dueDateLteq": {
-                  "type": "string"
-                },
-                "createdAtEq": {
-                  "type": "string"
-                },
-                "createdAtGteq": {
-                  "type": "string"
-                },
-                "createdAtLteq": {
-                  "type": "string"
-                },
-                "payerDocumentNumberEq": {
-                  "type": "string"
-                }
-              },
-              "type": "object"
-            }
-          },
-          {
-            "name": "assignor_id",
             "in": "path",
-            "description": "Id do acesso do cedente.",
-            "schema": {
-              "type": "string"
-            },
-            "required": true
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "200",
-            "content": {
-              "application/json": {
-                "examples": {
-                  "Result": {
-                    "value": "{\n  \"data\": {\n    \"id\": \"d8d74d12-88db-4b51-a6ca-6ac7bdd6cc23\",\n    \"type\": \"assignor\",\n    \"attributes\": {\n      \"createdAt\": \"2021-01-01T00:00:00.000-03:00\",\n      \"updatedAt\": \"2021-01-01T00:00:00.000-03:00\",\n      \"status\": \"pending\",\n      \"agency\": \"0001\",\n      \"accountNumber\": \"00001111-4\",\n      \"documentNumber\": \"26146719000129\",\n      \"name\": \"Grafeno - Cliente principal\",\n      \"agreeType\": \"manual\"\n    }\n  },\n  \"meta\": {\n    \"search\": {\n      \"filteredFieldEq\": \"grafeno\"\n    },\n    \"currentPage\": 2,\n    \"previousPage\": 1,\n    \"nextPage\": 3,\n    \"totalPages\": 5,\n    \"perPage\": 10,\n    \"totalCount\": 250\n  }\n}"
-                  }
-                },
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "data": {
-                      "type": "object",
-                      "properties": {
-                        "id": {
-                          "type": "string",
-                          "example": "d8d74d12-88db-4b51-a6ca-6ac7bdd6cc23"
-                        },
-                        "type": {
-                          "type": "string",
-                          "example": "assignor"
-                        },
-                        "attributes": {
-                          "type": "object",
-                          "properties": {
-                            "createdAt": {
-                              "type": "string",
-                              "example": "2021-01-01T00:00:00.000-03:00"
-                            },
-                            "updatedAt": {
-                              "type": "string",
-                              "example": "2021-01-01T00:00:00.000-03:00"
-                            },
-                            "status": {
-                              "type": "string",
-                              "example": "pending"
-                            },
-                            "agency": {
-                              "type": "string",
-                              "example": "0001"
-                            },
-                            "accountNumber": {
-                              "type": "string",
-                              "example": "00001111-4"
-                            },
-                            "documentNumber": {
-                              "type": "string",
-                              "example": "26146719000129"
-                            },
-                            "name": {
-                              "type": "string",
-                              "example": "Grafeno - Cliente principal"
-                            },
-                            "agreeType": {
-                              "type": "string",
-                              "example": "manual"
-                            }
-                          }
-                        }
+            "name": "id",
+            "description": "Revoga acesso.",
+            "operationId": "revogar-acesso",
+            "responses": {
+              "200": {
+                "description": "200",
+                "content": {
+                  "application/json": {
+                    "examples": {
+                      "Result": {
+                        "value": "{\n  \"data\": {\n    \"id\": \"d8d74d12-88db-4b51-a6ca-6ac7bdd6cc23\",\n    \"type\": \"assignor\",\n    \"attributes\": {\n      \"createdAt\": \"2021-01-01T00:00:00.000-03:00\",\n      \"updatedAt\": \"2021-01-01T00:00:00.000-03:00\",\n      \"status\": \"pending\",\n      \"agency\": \"0001\",\n      \"accountNumber\": \"00001111-4\",\n      \"documentNumber\": \"26146719000129\",\n      \"name\": \"Grafeno - Cliente principal\",\n      \"agreeType\": \"manual\"\n    }\n  }\n}"
                       }
                     },
-                    "meta": {
+                    "schema": {
                       "type": "object",
                       "properties": {
-                        "search": {
+                        "data": {
                           "type": "object",
                           "properties": {
-                            "filteredFieldEq": {
+                            "id": {
                               "type": "string",
-                              "example": "grafeno"
+                              "example": "d8d74d12-88db-4b51-a6ca-6ac7bdd6cc23"
+                            },
+                            "type": {
+                              "type": "string",
+                              "example": "assignor"
+                            },
+                            "attributes": {
+                              "type": "object",
+                              "properties": {
+                                "createdAt": {
+                                  "type": "string",
+                                  "example": "2021-01-01T00:00:00.000-03:00"
+                                },
+                                "updatedAt": {
+                                  "type": "string",
+                                  "example": "2021-01-01T00:00:00.000-03:00"
+                                },
+                                "status": {
+                                  "type": "string",
+                                  "example": "pending"
+                                },
+                                "agency": {
+                                  "type": "string",
+                                  "example": "0001"
+                                },
+                                "accountNumber": {
+                                  "type": "string",
+                                  "example": "00001111-4"
+                                },
+                                "documentNumber": {
+                                  "type": "string",
+                                  "example": "26146719000129"
+                                },
+                                "name": {
+                                  "type": "string",
+                                  "example": "Grafeno - Cliente principal"
+                                },
+                                "agreeType": {
+                                  "type": "string",
+                                  "example": "manual"
+                                }
+                              }
                             }
                           }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "400": {
+                "description": "400",
+                "content": {
+                  "application/json": {
+                    "examples": {
+                      "Result": {
+                        "value": "{\n    \"success\": false,\n    \"message\": \"Número de conta inválido.\"\n}"
+                      }
+                    },
+                    "schema": {
+                      "type": "object",
+                      "properties": {
+                        "success": {
+                          "type": "boolean",
+                          "example": false,
+                          "default": true
                         },
-                        "currentPage": {
-                          "type": "integer",
-                          "example": 2,
-                          "default": 0
-                        },
-                        "previousPage": {
-                          "type": "integer",
-                          "example": 1,
-                          "default": 0
-                        },
-                        "nextPage": {
-                          "type": "integer",
-                          "example": 3,
-                          "default": 0
-                        },
-                        "totalPages": {
-                          "type": "integer",
-                          "example": 5,
-                          "default": 0
-                        },
-                        "perPage": {
-                          "type": "integer",
-                          "example": 10,
-                          "default": 0
-                        },
-                        "totalCount": {
-                          "type": "integer",
-                          "example": 250,
-                          "default": 0
+                        "message": {
+                          "type": "string",
+                          "example": "Número de conta inválido."
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "401": {
+                "description": "401",
+                "content": {
+                  "application/json": {
+                    "examples": {
+                      "Result": {
+                        "value": "{\n  \"errors\": [\n    \"Você precisa entrar ou registrar-se antes de continuar.\"\n  ]\n}"
+                      }
+                    },
+                    "schema": {
+                      "type": "object",
+                      "properties": {
+                        "errors": {
+                          "type": "array",
+                          "items": {
+                            "type": "string",
+                            "example": "Você precisa entrar ou registrar-se antes de continuar."
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "deprecated": false
+          }
+        ]
+      },
+      "/concessions/assignors/{id}": {
+        "get": {
+          "summary": "Obter detalhes do cedente",
+          "description": "Exibe as informações de um cedente.",
+          "operationId": "obter-detalhes-do-cedente",
+          "parameters": [
+            {
+              "name": "p[per_page]",
+              "in": "query",
+              "description": "Quantidade de itens para retornar por página",
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "p[page]",
+              "in": "query",
+              "description": "Página a ser carregada",
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "s[]",
+              "in": "query",
+              "description": "Ordena os resultados usando o campo desejado, pode ser asc (crescente) ou desc (decrescente)",
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "q",
+              "in": "query",
+              "description": "Filtra os resultados usando o campo desejado.",
+              "schema": {
+                "properties": {
+                  "paymentMethodEq": {
+                    "type": "string"
+                  },
+                  "statusEq": {
+                    "type": "string"
+                  },
+                  "dueDateEq": {
+                    "type": "string"
+                  },
+                  "dueDateGteq": {
+                    "type": "string"
+                  },
+                  "dueDateLteq": {
+                    "type": "string"
+                  },
+                  "createdAtEq": {
+                    "type": "string"
+                  },
+                  "createdAtGteq": {
+                    "type": "string"
+                  },
+                  "createdAtLteq": {
+                    "type": "string"
+                  },
+                  "payerDocumentNumberEq": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              }
+            },
+            {
+              "name": "assignor_id",
+              "in": "path",
+              "description": "Id do acesso do cedente.",
+              "schema": {
+                "type": "string"
+              },
+              "required": true
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "200",
+              "content": {
+                "application/json": {
+                  "examples": {
+                    "Result": {
+                      "value": "{\n  \"data\": {\n    \"id\": \"d8d74d12-88db-4b51-a6ca-6ac7bdd6cc23\",\n    \"type\": \"assignor\",\n    \"attributes\": {\n      \"createdAt\": \"2021-01-01T00:00:00.000-03:00\",\n      \"updatedAt\": \"2021-01-01T00:00:00.000-03:00\",\n      \"status\": \"pending\",\n      \"agency\": \"0001\",\n      \"accountNumber\": \"00001111-4\",\n      \"documentNumber\": \"26146719000129\",\n      \"name\": \"Grafeno - Cliente principal\",\n      \"agreeType\": \"manual\"\n    }\n  },\n  \"meta\": {\n    \"search\": {\n      \"filteredFieldEq\": \"grafeno\"\n    },\n    \"currentPage\": 2,\n    \"previousPage\": 1,\n    \"nextPage\": 3,\n    \"totalPages\": 5,\n    \"perPage\": 10,\n    \"totalCount\": 250\n  }\n}"
+                    }
+                  },
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "data": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "example": "d8d74d12-88db-4b51-a6ca-6ac7bdd6cc23"
+                          },
+                          "type": {
+                            "type": "string",
+                            "example": "assignor"
+                          },
+                          "attributes": {
+                            "type": "object",
+                            "properties": {
+                              "createdAt": {
+                                "type": "string",
+                                "example": "2021-01-01T00:00:00.000-03:00"
+                              },
+                              "updatedAt": {
+                                "type": "string",
+                                "example": "2021-01-01T00:00:00.000-03:00"
+                              },
+                              "status": {
+                                "type": "string",
+                                "example": "pending"
+                              },
+                              "agency": {
+                                "type": "string",
+                                "example": "0001"
+                              },
+                              "accountNumber": {
+                                "type": "string",
+                                "example": "00001111-4"
+                              },
+                              "documentNumber": {
+                                "type": "string",
+                                "example": "26146719000129"
+                              },
+                              "name": {
+                                "type": "string",
+                                "example": "Grafeno - Cliente principal"
+                              },
+                              "agreeType": {
+                                "type": "string",
+                                "example": "manual"
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "meta": {
+                        "type": "object",
+                        "properties": {
+                          "search": {
+                            "type": "object",
+                            "properties": {
+                              "filteredFieldEq": {
+                                "type": "string",
+                                "example": "grafeno"
+                              }
+                            }
+                          },
+                          "currentPage": {
+                            "type": "integer",
+                            "example": 2,
+                            "default": 0
+                          },
+                          "previousPage": {
+                            "type": "integer",
+                            "example": 1,
+                            "default": 0
+                          },
+                          "nextPage": {
+                            "type": "integer",
+                            "example": 3,
+                            "default": 0
+                          },
+                          "totalPages": {
+                            "type": "integer",
+                            "example": 5,
+                            "default": 0
+                          },
+                          "perPage": {
+                            "type": "integer",
+                            "example": 10,
+                            "default": 0
+                          },
+                          "totalCount": {
+                            "type": "integer",
+                            "example": 250,
+                            "default": 0
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "401": {
+              "description": "401",
+              "content": {
+                "application/json": {
+                  "examples": {
+                    "Result": {
+                      "value": "{\n  \"errors\": [\n    \"Você precisa entrar ou registrar-se antes de continuar.\"\n  ]\n}"
+                    }
+                  },
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "errors": {
+                        "type": "array",
+                        "items": {
+                          "type": "string",
+                          "example": "Você precisa entrar ou registrar-se antes de continuar."
                         }
                       }
                     }
@@ -3825,40 +3852,16 @@
               }
             }
           },
-          "401": {
-            "description": "401",
-            "content": {
-              "application/json": {
-                "examples": {
-                  "Result": {
-                    "value": "{\n  \"errors\": [\n    \"Você precisa entrar ou registrar-se antes de continuar.\"\n  ]\n}"
-                  }
-                },
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "errors": {
-                      "type": "array",
-                      "items": {
-                        "type": "string",
-                        "example": "Você precisa entrar ou registrar-se antes de continuar."
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
-        "deprecated": false
+          "deprecated": false
+        }
       }
-    }
-  },
-  "x-readme": {
-    "headers": [],
-    "explorer-enabled": true,
-    "proxy-enabled": true,
-    "samples-enabled": true
-  },
-  "x-readme-fauxas": true
+    },
+    "x-readme": {
+      "headers": [],
+      "explorer-enabled": true,
+      "proxy-enabled": true,
+      "samples-enabled": true
+    },
+    "x-readme-fauxas": true
+  }
 }
