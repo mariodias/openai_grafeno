@@ -3711,7 +3711,7 @@
               }
             },
             {
-              "name": "assignor_id",
+              "name": "id",
               "in": "path",
               "description": "Id do acesso do cedente.",
               "schema": {
