@@ -46,9 +46,9 @@
             }
           },
           {
-            "name": "search[entryAtGtEq]",
+            "name": "search[entryAtLtEq]",
             "in": "query",
-            "description": "Formato: [YYYY-MM-DD] - Data de entrada maior ou igual ao padrão | padrão: primeiro dia do mês corrente",
+            "description": "Formato: [YYYY-MM-DD] - Data de entrada menor ou igual ao padrão | padrão: primeiro dia do mês corrente",
             "schema": {
               "type": "string"
             }
