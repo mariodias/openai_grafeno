@@ -1438,7 +1438,7 @@
         "deprecated": false
       }
     },
-    "/cnab": {
+    "/cnab/{date}": {
       "get": {
         "summary": "Listar CNAB",
         "description": "Otimize sua rotina financeira com facilidade! Conheça nossa API de Conciliação Bancária.  Simplifique o acesso aos seus arquivos de retorno de forma automatizada. Adeus à carga manual!  Integre nossa solução e ganhe agilidade e precisão no processo de conciliação. Experimente a praticidade de  acessar seus dados financeiros de maneira rápida e segura. Liberte-se do trabalho manual e adote a eficiência da nossa API.",
