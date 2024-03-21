@@ -1438,7 +1438,7 @@
     "/cnab": {
       "get": {
         "summary": "Listar CNAB",
-        "description": "Otimize sua rotina financeira com facilidade! Conheça nossa API de Conciliação Bancária.  Simplifique o acesso aos seus arquivos de retorno de forma automatizada. Adeus à carga manual!  Integre nossa solução e ganhe agilidade e precisão no processo de conciliação. Experimente a praticidade de  acessar seus dados financeiros de maneira rápida e segura. Liberte-se do trabalho manual e adote a eficiência da nossa API.",
+        "description": "Otimize sua rotina financeira com facilidade! Conheça nossa API de Conciliação Bancária.  Simplifique o acesso aos seus arquivos de retorno. de retorno de forma automatizada. Adeus à carga manual!  Integre nossa solução e ganhe agilidade e precisão no processo de conciliação. Experimente a praticidade de  acessar seus dados financeiros de maneira rápida e segura. Liberte-se do trabalho manual e adote a eficiência da nossa API.",
         "operationId": "listar-cnab",
         "parameters": [
           {
@@ -1466,16 +1466,6 @@
               "type": "integer",
               "format": "int32"
             }
-          },
-          {
-            "name": "date",
-            "in": "path",
-            "description": "Data do arquivo<br>Formato: <code>YYYY-MM-DD</code>",
-            "schema": {
-              "type": "string",
-              "format": "date"
-            },
-            "required": true
           }
         ],
         "responses": {
