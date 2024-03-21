@@ -26,8 +26,17 @@
   },
   "security": [
     {
+<<<<<<< HEAD
       "sec0": [],
       "sec1": []
+=======
+      "sec0": [
+
+      ],
+      "sec1": [
+
+      ]
+>>>>>>> 0678a1486a91056b2c297cc5ba0442819aa335a3
     }
   ],
   "paths": {
@@ -148,7 +157,13 @@
                                 "type": "string",
                                 "example": "-0.06"
                               },
+<<<<<<< HEAD
                               "apiPartnerTransactionUuid": {},
+=======
+                              "apiPartnerTransactionUuid": {
+
+                              },
+>>>>>>> 0678a1486a91056b2c297cc5ba0442819aa335a3
                               "balance": {
                                 "type": "string",
                                 "example": "374379.21"
@@ -182,8 +197,17 @@
                               "example": 1,
                               "default": 0
                             },
+<<<<<<< HEAD
                             "previousPage": {},
                             "nextPage": {},
+=======
+                            "previousPage": {
+
+                            },
+                            "nextPage": {
+
+                            },
+>>>>>>> 0678a1486a91056b2c297cc5ba0442819aa335a3
                             "perPage": {
                               "type": "integer",
                               "example": 25,
@@ -251,7 +275,13 @@
         "requestBody": {
           "content": {
             "application/json": {
+<<<<<<< HEAD
               "schema": {},
+=======
+              "schema": {
+
+              },
+>>>>>>> 0678a1486a91056b2c297cc5ba0442819aa335a3
               "examples": {
                 "Request Example": {
                   "value": {
@@ -384,7 +414,13 @@
                       "properties": {
                         "search": {
                           "type": "object",
+<<<<<<< HEAD
                           "properties": {}
+=======
+                          "properties": {
+
+                          }
+>>>>>>> 0678a1486a91056b2c297cc5ba0442819aa335a3
                         },
                         "pagination": {
                           "type": "object",
@@ -394,7 +430,13 @@
                               "example": 1,
                               "default": 0
                             },
+<<<<<<< HEAD
                             "previousPage": {},
+=======
+                            "previousPage": {
+
+                            },
+>>>>>>> 0678a1486a91056b2c297cc5ba0442819aa335a3
                             "nextPage": {
                               "type": "integer",
                               "example": 2,
@@ -501,11 +543,19 @@
                     "properties": {
                       "key": {
                         "type": "string",
+<<<<<<< HEAD
                         "description": "Chave PIX do beneficiário."
                       },
                       "key_type": {
                         "type": "string",
                         "description": "Tipo da chave PIX do beneficiário. valores possíveis: cnpj, cpf, email, phone, evp."
+=======
+                        "description": "Chave PIX do beneficiário"
+                      },
+                      "key_type": {
+                        "type": "string",
+                        "description": "Tipo da chave PIX do beneficiário. valores possíveis: CNPJ, CPF, email, phone, evp."
+>>>>>>> 0678a1486a91056b2c297cc5ba0442819aa335a3
                       }
                     }
                   }
@@ -841,6 +891,7 @@
                       },
                       "titleType": {
                         "type": "string",
+<<<<<<< HEAD
                         "description": "Natureza da cobrança.",
                         "default": "several",
                         "enum": [
@@ -859,6 +910,9 @@
                           "condominium_fees",
                           "service_account"
                         ]
+=======
+                        "description": "Tipo de cobrança."
+>>>>>>> 0678a1486a91056b2c297cc5ba0442819aa335a3
                       },
                       "observation": {
                         "type": "string",
@@ -1353,7 +1407,13 @@
                       "properties": {
                         "search": {
                           "type": "object",
+<<<<<<< HEAD
                           "properties": {}
+=======
+                          "properties": {
+
+                          }
+>>>>>>> 0678a1486a91056b2c297cc5ba0442819aa335a3
                         },
                         "pagination": {
                           "type": "object",
@@ -1363,7 +1423,13 @@
                               "example": 1,
                               "default": 0
                             },
+<<<<<<< HEAD
                             "previousPage": {},
+=======
+                            "previousPage": {
+
+                            },
+>>>>>>> 0678a1486a91056b2c297cc5ba0442819aa335a3
                             "nextPage": {
                               "type": "integer",
                               "example": 2,
@@ -1435,7 +1501,11 @@
         "deprecated": false
       }
     },
+<<<<<<< HEAD
     "/cnab": {
+=======
+    "/cnab/{date}": {
+>>>>>>> 0678a1486a91056b2c297cc5ba0442819aa335a3
       "get": {
         "summary": "Listar CNAB",
         "description": "Otimize sua rotina financeira com facilidade! Conheça nossa API de Conciliação Bancária.  Simplifique o acesso aos seus arquivos de retorno de forma automatizada. Adeus à carga manual!  Integre nossa solução e ganhe agilidade e precisão no processo de conciliação. Experimente a praticidade de  acessar seus dados financeiros de maneira rápida e segura. Liberte-se do trabalho manual e adote a eficiência da nossa API.",
@@ -1678,11 +1748,14 @@
                     "type": "object",
                     "description": "Parâmetros para realizar transferência",
                     "properties": {
+<<<<<<< HEAD
                       "transfer_method": {
                         "type": "string",
                         "description": "Método de transferência, podendo ser pix ou ted. Caso não seja informado, o padrão utilizado é ted.",
                         "default": "ted"
                       },
+=======
+>>>>>>> 0678a1486a91056b2c297cc5ba0442819aa335a3
                       "value": {
                         "type": "number",
                         "description": "Valor da transferência.",
@@ -1728,7 +1801,11 @@
                       },
                       "key_type": {
                         "type": "string",
+<<<<<<< HEAD
                         "description": "Tipo de chave PIX do beneficiário. Valores possíveis: evp, cpf, cnpj, email e phone."
+=======
+                        "description": "Tipo de chave PIX do beneficiário."
+>>>>>>> 0678a1486a91056b2c297cc5ba0442819aa335a3
                       },
                       "key": {
                         "type": "string",
@@ -2130,6 +2207,7 @@
                                     "attributes": {
                                       "type": "object",
                                       "properties": {
+<<<<<<< HEAD
                                         "ourNumber": {},
                                         "ourNumberDv": {},
                                         "barCode": {},
@@ -2138,6 +2216,32 @@
                                         "quickPdfUrl": {},
                                         "lineCode": {},
                                         "registrationStatus": {},
+=======
+                                        "ourNumber": {
+
+                                        },
+                                        "ourNumberDv": {
+
+                                        },
+                                        "barCode": {
+
+                                        },
+                                        "emv": {
+
+                                        },
+                                        "image": {
+
+                                        },
+                                        "quickPdfUrl": {
+
+                                        },
+                                        "lineCode": {
+
+                                        },
+                                        "registrationStatus": {
+
+                                        },
+>>>>>>> 0678a1486a91056b2c297cc5ba0442819aa335a3
                                         "pdf": {
                                           "type": "string",
                                           "example": "https://pagamentos.grafeno.be/charges/81207bd1-5366-4432-ba18-82e787f745e8/download_boleto"
@@ -2715,8 +2819,17 @@
                                             "type": "string",
                                             "example": "2023-12-07T15:02:01.953-03:00"
                                           },
+<<<<<<< HEAD
                                           "paymentBankCode": {},
                                           "paymentAgency": {}
+=======
+                                          "paymentBankCode": {
+
+                                          },
+                                          "paymentAgency": {
+
+                                          }
+>>>>>>> 0678a1486a91056b2c297cc5ba0442819aa335a3
                                         }
                                       }
                                     }
@@ -3786,7 +3899,13 @@
                 },
                 "schema": {
                   "type": "object",
+<<<<<<< HEAD
                   "properties": {}
+=======
+                  "properties": {
+
+                  }
+>>>>>>> 0678a1486a91056b2c297cc5ba0442819aa335a3
                 }
               }
             }
@@ -4080,7 +4199,13 @@
                     },
                     "searched": {
                       "type": "object",
+<<<<<<< HEAD
                       "properties": {}
+=======
+                      "properties": {
+
+                      }
+>>>>>>> 0678a1486a91056b2c297cc5ba0442819aa335a3
                     }
                   }
                 }
@@ -4780,7 +4905,13 @@
             "in": "query",
             "description": "Filtra os resultados usando o campo desejado.",
             "schema": {
+<<<<<<< HEAD
               "properties": {},
+=======
+              "properties": {
+
+              },
+>>>>>>> 0678a1486a91056b2c297cc5ba0442819aa335a3
               "type": "object"
             }
           }
@@ -4986,7 +5117,13 @@
             "in": "query",
             "description": "Filtra os resultados usando o campo desejado.",
             "schema": {
+<<<<<<< HEAD
               "properties": {},
+=======
+              "properties": {
+
+              },
+>>>>>>> 0678a1486a91056b2c297cc5ba0442819aa335a3
               "type": "object"
             }
           },
@@ -6211,7 +6348,13 @@
                               "example": true,
                               "default": true
                             },
+<<<<<<< HEAD
                             "extraHeaders": {}
+=======
+                            "extraHeaders": {
+
+                            }
+>>>>>>> 0678a1486a91056b2c297cc5ba0442819aa335a3
                           }
                         }
                       }
@@ -6370,7 +6513,13 @@
                                 "example": true,
                                 "default": true
                               },
+<<<<<<< HEAD
                               "extraHeaders": {}
+=======
+                              "extraHeaders": {
+
+                              }
+>>>>>>> 0678a1486a91056b2c297cc5ba0442819aa335a3
                             }
                           }
                         }
@@ -6381,7 +6530,13 @@
                       "properties": {
                         "search": {
                           "type": "object",
+<<<<<<< HEAD
                           "properties": {}
+=======
+                          "properties": {
+
+                          }
+>>>>>>> 0678a1486a91056b2c297cc5ba0442819aa335a3
                         },
                         "pagination": {
                           "type": "object",
@@ -6391,8 +6546,17 @@
                               "example": 1,
                               "default": 0
                             },
+<<<<<<< HEAD
                             "previousPage": {},
                             "nextPage": {},
+=======
+                            "previousPage": {
+
+                            },
+                            "nextPage": {
+
+                            },
+>>>>>>> 0678a1486a91056b2c297cc5ba0442819aa335a3
                             "perPage": {
                               "type": "integer",
                               "example": 25,
@@ -6577,7 +6741,13 @@
                               "example": true,
                               "default": true
                             },
+<<<<<<< HEAD
                             "extraHeaders": {}
+=======
+                            "extraHeaders": {
+
+                            }
+>>>>>>> 0678a1486a91056b2c297cc5ba0442819aa335a3
                           }
                         }
                       }
@@ -6942,7 +7112,13 @@
                               "example": false,
                               "default": true
                             },
+<<<<<<< HEAD
                             "extraHeaders": {}
+=======
+                            "extraHeaders": {
+
+                            }
+>>>>>>> 0678a1486a91056b2c297cc5ba0442819aa335a3
                           }
                         }
                       }
@@ -7171,10 +7347,20 @@
     }
   },
   "x-readme": {
+<<<<<<< HEAD
     "headers": [],
+=======
+    "headers": [
+
+    ],
+>>>>>>> 0678a1486a91056b2c297cc5ba0442819aa335a3
     "explorer-enabled": true,
     "proxy-enabled": true,
     "samples-enabled": true
   },
   "x-readme-fauxas": true
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 0678a1486a91056b2c297cc5ba0442819aa335a3
