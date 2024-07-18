@@ -9,6 +9,62 @@
       "url": "https://pagamentos.grafeno.be/api/v2"
     }
   ],
+  ,
+  "info": {
+    "description": "Grafeno Digital",
+    "version": "v2",
+    "title": "Pagamentos",
+    "termsOfService": "https://docs.grafeno.digital/reference/termos-de-uso-e-pol%C3%ADticas-de-privacidade",
+    "contact": {
+      "email": "integracao@grafeno.digital"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  },
+  "tags": [
+    {
+      "name": "ccb",
+      "description": "Endpoints relacionados as CCBs."
+    },
+    {
+      "name": "Contas Grafeno",
+      "description": "Endpoints relacionados as contas grafeno."
+    },
+    {
+      "name": "Cobranças",
+      "description": "Endpoints relacionados as cobranças."
+    },
+    {
+      "name": "Gestão de Titularidades",
+      "description": "Endpoints relacionados a gestão de titularidades"
+    },
+    {
+      "name": "Cedentes",
+      "description": "Endpoints relacionados a cedentes"
+    },
+    {
+      "name": "ficha-cadastral",
+      "description": "Endpoints relacionado ao processo de cadastro das contas grafeno."
+    },
+    {
+      "name": "Beneficiários",
+      "description": "Endpoints relacionados aos beneficiários das contas grafeno."
+    },
+    {
+      "name": "Transferências Bancárias",
+      "description": "Endpoints relacionado a transferências"
+    },
+    {
+      "name": "Notificações (webhook)",
+      "description": "Endpoints relacionados a gestão dos webhooks das contas grafeno."
+    },
+    {
+      "name": "check_user",
+      "description": "Endpoints para integração com a URA Identificada (Atende Simples)."
+    }
+  ],
   "components": {
     "securitySchemes": {
       "sec0": {
@@ -33,6 +89,9 @@
   "paths": {
     "/charges": {
       "post": {
+        "tags": [
+          "Cobranças"
+        ],
         "summary": "Criar uma cobrança",
         "description": "Este recurso permite a criação de uma cobrança.",
         "operationId": "create-charge",
