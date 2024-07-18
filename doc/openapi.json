@@ -1,6 +1,6 @@
 {
   "openapi": "3.1.0",
-    "info": {
+  "info": {
     "description": "Grafeno Digital",
     "version": "v2.0.0",
     "title": "Pagamentos",
@@ -5405,10 +5405,10 @@
       }
     },
     "/webhooks": {
-      "tags": [
+      "post": {
+        "tags": [
           "Webhooks"
         ],
-      "post": {
         "summary": "Cadastrar URL de notificação",
         "description": "Este recurso permite o cadastro de uma URL para recebimento de webhooks.",
         "operationId": "add-webhook",
@@ -5610,7 +5610,7 @@
         "deprecated": false
       },
       "get": {
-         "tags": [
+        "tags": [
           "Webhooks"
         ],
         "summary": "Listar webhooks cadastrados",
@@ -5884,7 +5884,7 @@
     },
     "/webhooks/{webhook_uuid}": {
       "get": {
-         "tags": [
+        "tags": [
           "Webhooks"
         ],
         "summary": "Visualizar regra de notificação",
@@ -6081,7 +6081,7 @@
         "deprecated": false
       },
       "delete": {
-         "tags": [
+        "tags": [
           "Webhooks"
         ],
         "summary": "Remover regra de notificação",
@@ -6239,7 +6239,7 @@
     },
     "/webhooks/{webhook_uuid}/update_state": {
       "patch": {
-         "tags": [
+        "tags": [
           "Webhooks"
         ],
         "summary": "Desativar webhook",
@@ -6464,7 +6464,7 @@
     },
     "/ip_bank_accounts/": {
       "get": {
-         "tags": [
+        "tags": [
           "Extratos"
         ],
         "summary": "Listar contas bancárias",
