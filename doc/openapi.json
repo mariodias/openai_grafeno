@@ -1,8 +1,8 @@
 {
   "openapi": "3.1.0",
-  "info": {
+    "info": {
     "description": "Grafeno Digital",
-    "version": "v2",
+    "version": "v2.0.0",
     "title": "Pagamentos",
     "termsOfService": "https://docs.grafeno.digital/reference/termos-de-uso-e-pol%C3%ADticas-de-privacidade",
     "contact": {
@@ -20,11 +20,7 @@
   ],
   "tags": [
     {
-      "name": "ccb",
-      "description": "Endpoints relacionados as CCBs."
-    },
-    {
-      "name": "Contas Grafeno",
+      "name": "Extratos",
       "description": "Endpoints relacionados as contas grafeno."
     },
     {
@@ -36,28 +32,16 @@
       "description": "Endpoints relacionados a gestão de titularidades"
     },
     {
-      "name": "Cedentes",
-      "description": "Endpoints relacionados a cedentes"
-    },
-    {
-      "name": "ficha-cadastral",
-      "description": "Endpoints relacionado ao processo de cadastro das contas grafeno."
-    },
-    {
       "name": "Beneficiários",
       "description": "Endpoints relacionados aos beneficiários das contas grafeno."
     },
     {
-      "name": "Transferências Bancárias",
+      "name": "Transferências",
       "description": "Endpoints relacionado a transferências"
     },
     {
-      "name": "Notificações (webhook)",
+      "name": "Webhooks (Notificações)",
       "description": "Endpoints relacionados a gestão dos webhooks das contas grafeno."
-    },
-    {
-      "name": "check_user",
-      "description": "Endpoints para integração com a URA Identificada (Atende Simples)."
     }
   ],
   "components": {
@@ -955,6 +939,9 @@
     },
     "/cnab": {
       "get": {
+        "tags": [
+          "Cobranças"
+        ],
         "summary": "Baixar arquivos de retorno - CNAB400",
         "description": "Este recurso retorna uma lista com os arquivos de retorno no formato CNAB400 disponíveis.",
         "operationId": "list-cnab",
@@ -1150,6 +1137,9 @@
     },
     "/charges/{charge_uuid}": {
       "get": {
+        "tags": [
+          "Cobranças"
+        ],
         "summary": "Visualizar cobrança",
         "description": "Este recurso retorna informações de uma cobrança existente.",
         "operationId": "view-charge",
@@ -1702,6 +1692,9 @@
         "deprecated": false
       },
       "patch": {
+        "tags": [
+          "Cobranças"
+        ],
         "summary": "Atualizar cobrança",
         "description": "Este recurso permite a atualização de dados de uma cobrança.",
         "operationId": "update-charge",
@@ -2204,6 +2197,9 @@
         "deprecated": false
       },
       "delete": {
+        "tags": [
+          "Cobranças"
+        ],
         "summary": "Cancelar cobrança",
         "description": "Este recurso efetua o cancelamento de uma cobrança.",
         "operationId": "cancel-charge",
@@ -2315,6 +2311,9 @@
     },
     "/charges/{charge_uuid}/protest": {
       "post": {
+        "tags": [
+          "Cobranças"
+        ],
         "summary": "Protestar cobrança",
         "description": "este recurso abre um protesto em uma cobrança.",
         "operationId": "protest-charge",
@@ -2457,6 +2456,9 @@
     },
     "/charges/{charge_uuid}/cancel_protest": {
       "post": {
+        "tags": [
+          "Cobranças"
+        ],
         "summary": "Cancelar protesto de cobrança",
         "description": "Este recurso efetua o cancelamento de um protesto.",
         "operationId": "cancel-charge-protest",
@@ -2599,6 +2601,9 @@
     },
     "/charges/{charge_uuid}/paid_externally": {
       "patch": {
+        "tags": [
+          "Cobranças"
+        ],
         "summary": "Dar baixa em cobrança",
         "description": "Este recurso efetua a baixa de uma cobrança.",
         "operationId": "write-off-charge",
@@ -3062,6 +3067,9 @@
     },
     "/concessions/assignors/{assignor_id}/charges": {
       "get": {
+        "tags": [
+          "Titularidades"
+        ],
         "summary": "Listar cobranças disponíveis",
         "description": "este recurso retorna uma lista com todas as cobranças disponíveis para captura.",
         "operationId": "list-available-charges",
@@ -3398,6 +3406,9 @@
     },
     "/concessions/assignors/{assignor_id}/catching": {
       "post": {
+        "tags": [
+          "Titularidades"
+        ],
         "summary": "Capturar títulos",
         "description": "este recurso permite a captura de títulos.",
         "operationId": "capture-charges",
@@ -3765,6 +3776,9 @@
     },
     "/concessions": {
       "get": {
+        "tags": [
+          "Titularidades"
+        ],
         "summary": "Listar capturas",
         "description": "Este recurso retorna uma lista com todas as capturas / cessões efetuadas.",
         "operationId": "list-concessions",
@@ -4002,6 +4016,9 @@
     },
     "/concessions/{concession_id}": {
       "get": {
+        "tags": [
+          "Titularidades"
+        ],
         "summary": "Detalhes da Captura",
         "description": "Este recurso retorna informações sobre uma captura / cessão de títulos.",
         "operationId": "view-concession",
@@ -4310,6 +4327,9 @@
     },
     "/concessions/return": {
       "post": {
+        "tags": [
+          "Titularidades"
+        ],
         "summary": "Devolver títulos",
         "description": "Este recurso permite a devolução de títulos capturados / cedidos.",
         "operationId": "return-charges",
@@ -4666,6 +4686,9 @@
     },
     "/concessions/assignors": {
       "get": {
+        "tags": [
+          "Titularidades"
+        ],
         "summary": "Listar cedentes",
         "description": "Este recurso retorna uma lista com todos os cedentes cadastrados.",
         "operationId": "list-assignors",
@@ -4901,6 +4924,9 @@
         "deprecated": false
       },
       "post": {
+        "tags": [
+          "Titularidades"
+        ],
         "summary": "Solicitar acesso do Cedente",
         "description": "Este recurso permite a solicitação de acesso a base de cobranças de um cedente.",
         "operationId": "create-creditor-access",
@@ -5072,6 +5098,9 @@
     },
     "/concessions/assignors/{assignor_id}/revoke": {
       "patch": {
+        "tags": [
+          "Titularidades"
+        ],
         "summary": "Revogar acesso",
         "description": "Este recurso revoga o acesso do credor na base do cedente.",
         "operationId": "revoke-access",
@@ -5218,6 +5247,9 @@
     },
     "/concessions/assignors/{assignor_id}": {
       "get": {
+        "tags": [
+          "Titularidades"
+        ],
         "summary": "Obter detalhes do cedente",
         "description": "Este recurso retorna informações de um cedente.",
         "operationId": "view-assignor",
@@ -5373,6 +5405,9 @@
       }
     },
     "/webhooks": {
+      "tags": [
+          "Webhooks"
+        ],
       "post": {
         "summary": "Cadastrar URL de notificação",
         "description": "Este recurso permite o cadastro de uma URL para recebimento de webhooks.",
@@ -5575,6 +5610,9 @@
         "deprecated": false
       },
       "get": {
+         "tags": [
+          "Webhooks"
+        ],
         "summary": "Listar webhooks cadastrados",
         "description": "Este recurso retorna uma lista com todas as regras de notificação cadastradas.",
         "operationId": "list-webhooks",
@@ -5846,6 +5884,9 @@
     },
     "/webhooks/{webhook_uuid}": {
       "get": {
+         "tags": [
+          "Webhooks"
+        ],
         "summary": "Visualizar regra de notificação",
         "description": "Este recurso retorna informações de uma regra de notificação.",
         "operationId": "view-webhook",
@@ -6040,6 +6081,9 @@
         "deprecated": false
       },
       "delete": {
+         "tags": [
+          "Webhooks"
+        ],
         "summary": "Remover regra de notificação",
         "description": "este recurso permite a exclusão de uma regra de notificação.",
         "operationId": "remove-webhook",
@@ -6195,6 +6239,9 @@
     },
     "/webhooks/{webhook_uuid}/update_state": {
       "patch": {
+         "tags": [
+          "Webhooks"
+        ],
         "summary": "Desativar webhook",
         "description": "Este recurso permite ativar ou desativar uma regra de notificação.",
         "operationId": "update-webhook",
@@ -6417,6 +6464,9 @@
     },
     "/ip_bank_accounts/": {
       "get": {
+         "tags": [
+          "Extratos"
+        ],
         "summary": "Listar contas bancárias",
         "description": "Este endpoint permite listar as contas bancárias do participante associado ao token utilizado.",
         "operationId": "list-bank-accounts",
@@ -6622,6 +6672,9 @@
     },
     "/balance/": {
       "get": {
+        "tags": [
+          "Extratos"
+        ],
         "summary": "Obter saldo da conta Grafeno",
         "description": "Este endpoint permite obter o saldo das contas bancárias do participante associado ao token utilizado.",
         "operationId": "get-account-balance",
@@ -6795,6 +6848,9 @@
     },
     "/statement_entries/": {
       "get": {
+        "tags": [
+          "Extratos"
+        ],
         "summary": "Listar movimentações da conta",
         "description": "Este endpoint permite listar todas as movimentações das contas associadas à sua conta Grafeno.",
         "operationId": "list-account-transactions",
@@ -7118,6 +7174,9 @@
     },
     "/beneficiaries": {
       "post": {
+        "tags": [
+          "Beneficiários"
+        ],
         "summary": "Adicionar beneficiários",
         "description": "Este endpoint é usado para adicionar beneficiários à conta Grafeno.",
         "operationId": "add-beneficiaries",
@@ -7337,7 +7396,10 @@
         "deprecated": false
       },
       "get": {
-        "summary": "Todos os beneficiários da conta",
+        "tags": [
+          "Beneficiários"
+        ],
+        "summary": "Listar beneficiários",
         "description": "Este endpoint retorna todos os beneficiários cadastrados na conta Grafeno.",
         "operationId": "list-beneficiaries",
         "parameters": [
@@ -7575,6 +7637,9 @@
     },
     "/beneficiaries/{beneficiary_uuid}": {
       "get": {
+        "tags": [
+          "Beneficiários"
+        ],
         "summary": "Visualizar beneficiário",
         "description": "Este endpoint retorna informações detalhadas de um beneficiário específico da conta Grafeno.",
         "operationId": "view-beneficiary",
@@ -7725,8 +7790,11 @@
     },
     "/transfer_requests": {
       "post": {
-        "summary": "Nova transferência",
-        "description": "Este endpoint permite criar uma nova transferência no sistema Grafeno.",
+        "tags": [
+          "Transferências"
+        ],
+        "summary": "Criar transferência",
+        "description": "Este endpoint permite criar uma nova transferência.",
         "operationId": "new-transfer",
         "requestBody": {
           "content": {
@@ -8013,6 +8081,9 @@
         "deprecated": false
       },
       "get": {
+        "tags": [
+          "Transferências"
+        ],
         "summary": "Listar transferências",
         "description": "Este endpoint é utilizado para listar as transferências que estão pendentes de aprovação ou rejeição.",
         "operationId": "listar-transferências-pendentes-copy",
@@ -8270,6 +8341,9 @@
     },
     "/transfer_requests/pending": {
       "get": {
+        "tags": [
+          "Transferências"
+        ],
         "summary": "Listar transferências pendentes",
         "description": "Este endpoint é utilizado para listar as transferências que estão pendentes de aprovação ou rejeição.",
         "operationId": "transfer-requests-pending",
@@ -8514,6 +8588,9 @@
     },
     "/transfer_requests/{apiPartnerTransactionUuid}/update_state": {
       "patch": {
+        "tags": [
+          "Transferências"
+        ],
         "summary": "Aprovar ou rejeitar",
         "description": "Este endpoint permite aprovar ou rejeitar uma transferência sem a necessidade de fornecer informações adicionais da conta envolvida.",
         "operationId": "approve-or-reject-transfers",
