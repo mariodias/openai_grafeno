@@ -1,16 +1,6 @@
 {
   "openapi": "3.1.0",
   "info": {
-    "title": "API V2 Grafeno",
-    "version": "2.0.0"
-  },
-  "servers": [
-    {
-      "url": "https://pagamentos.grafeno.be/api/v2"
-    }
-  ],
-  ,
-  "info": {
     "description": "Grafeno Digital",
     "version": "v2",
     "title": "Pagamentos",
@@ -23,6 +13,11 @@
       "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
     }
   },
+  "servers": [
+    {
+      "url": "https://pagamentos.grafeno.be/api/v2"
+    }
+  ],
   "tags": [
     {
       "name": "ccb",
@@ -549,6 +544,9 @@
         "deprecated": false
       },
       "get": {
+        "tags": [
+          "Cobranças"
+        ],
         "summary": "Listar cobranças",
         "description": "Este recurso retorna uma lista com todas as cobranças já criadas.",
         "operationId": "list-charges",
