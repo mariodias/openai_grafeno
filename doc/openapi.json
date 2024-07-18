@@ -33,7 +33,7 @@
   "paths": {
     "/charges": {
       "post": {
-        "summary": "Criar cobrança - Boleto Bancário",
+        "summary": "Criar uma cobrança",
         "description": "Este recurso permite a criação de uma cobrança.",
         "operationId": "create-charge",
         "requestBody": {
